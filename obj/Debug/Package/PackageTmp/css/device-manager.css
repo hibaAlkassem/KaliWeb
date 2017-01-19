@@ -1,0 +1,15 @@
+.required {
+
+ border: 1px solid #3494d1 !important ;
+
+}
+.tooltip-inner {
+     white-space:pre;
+   line-height: 5px;
+
+max-width: 1000px !important;
+    z-index: 9999 !important;
+}
+
+
+

@@ -1,0 +1,101 @@
+.data-form{
+
+margin-top: 7px;
+
+}
+
+.data-form-txt{
+
+float: left;
+    display: block;
+margin-top: 5px;
+    margin-right: 34px;
+
+}
+
+.data-form-input{
+
+min-height: 26px !important;
+width: 100px;
+    margin-top: 3px;
+}
+
+#deviceIdTxt{
+margin-right: 40px;
+}
+#deviceId{
+height: 10px !important;
+}
+
+.event-data{
+margin-top: -10px;
+margin-left: 50px;
+
+}
+
+#orientationTxt{
+
+    margin-right: 20px
+
+}
+
+#capacitiveTxt{
+
+    margin-right: 25px
+
+}
+
+#temperatureTxt{
+ margin-right: 12px
+
+}
+
+
+#humidityTxt{
+ margin-right: 35px
+
+}
+
+#batteryTxt{
+ margin-right: 47px
+
+}
+
+#addBtn{
+
+    margin-top: 10px;
+    //margin-left: 100px;
+width: 150px;
+
+}
+
+.data{
+
+height: 130px;
+    background-color: white;
+font-size: 20px;
+    padding-top: 5px;
+    resize: none;
+    width: 100%;
+
+    
+    
+}
+
+#submitData{
+margin-top: 20px;
+width: 100px;
+
+}
+
+
+.input-error{
+
+position: absolute;
+margin-top: 10px;
+    color: #E75151;
+    font-size: 12px;
+    margin-left: 5px;
+display: none;
+
+}

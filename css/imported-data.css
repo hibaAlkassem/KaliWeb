@@ -1,0 +1,109 @@
+    .table thead:first-child .sorting_asc {
+        background: url("../assets/plugins/jquery-datatable/images/sort_asc.png") no-repeat scroll 130px center rgb(236, 240, 242);
+        color: #22262E;
+    }
+    
+    .table thead:first-child .sorting_desc {
+        background: url("../assets/plugins/jquery-datatable/images/sort_desc.png") no-repeat scroll 130px center rgb(236, 240, 242);
+        color: #22262E;
+    }
+    
+    .table thead:first-child .sorting_asc:nth-child(2) {
+        background: url("../assets/plugins/jquery-datatable/images/sort_asc.png") no-repeat scroll 140px center rgb(236, 240, 242);
+        color: #22262E;
+    }
+    
+    .table thead:first-child .sorting_desc:nth-child(2) {
+        background: url("../assets/plugins/jquery-datatable/images/sort_desc.png") no-repeat scroll 140px center rgb(236, 240, 242);
+        color: #22262E;
+    }
+    
+    .table thead:first-child .sorting_asc:nth-child(3) {
+        background: url("../assets/plugins/jquery-datatable/images/sort_asc.png") no-repeat scroll 58px center rgb(236, 240, 242);
+        color: #22262E;
+    }
+    
+    .table thead:first-child .sorting_desc:nth-child(3) {
+        background: url("../assets/plugins/jquery-datatable/images/sort_desc.png") no-repeat scroll 58px center rgb(236, 240, 242);
+        color: #22262E;
+    }
+    
+    div.dataTables_info {
+        padding-right: 0px;
+    }
+    
+    .paginate_disabled_previous,
+    .paginate_enabled_previous {
+        padding-right: 10px !important;
+        cursor: pointer;
+        cursor: hand;
+    }
+    
+    .paginate_disabled_next,
+    .paginate_enabled_next {
+        cursor: pointer;
+        cursor: hand;
+    }
+    
+    .serial-input {
+        float: left;
+        margin-bottom: 20px;
+    }
+    
+    .server-radio {
+        margin-left: 49px;
+        width: 340px
+    }
+    
+    #deviceSerial {
+        margin-bottom: 8px;
+    }
+    
+    .add-devices-header {
+        margin-bottom: 20px
+    }
+    
+    #sumbitDevice {
+        float: right;
+    }
+    
+    .device-fail {
+        color: red !important;
+    }
+    
+    #requestStatus {
+        font-size: 12px;
+        color: green;
+    }
+    
+    .data-title {
+        font-weight: 600;
+    }
+    
+    .new-device .col-lg-10,
+    .new-device .col-lg-2 {
+        margin-top: 5px
+    }
+    
+    .new-device .col-lg-10 {
+        word-break: break-all;
+        color: black;
+    }
+    
+    .new-device {
+        margin-top: -10px;
+        display: none
+    }
+    
+    #newDeviceHeader {
+        display: none;
+    }
+    
+    td {
+        word-wrap: break-word;
+    }
+    
+
+    .bootstrap-timepicker-widget table td input {
+        width: 43px !important;
+    }

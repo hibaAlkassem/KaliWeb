@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="">
+
+<head>
+
+    <script src="assets/js/googleAnalytics.js" type="text/javascript"></script>
+    <link  href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link  href="css/bootstrap-timepicker.min.css"  rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/bootstrap-datepicker/css/datepicker.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/jquery-notifications/css/messenger.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="assets/plugins/jquery-notifications/css/messenger-theme-flat.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="css/imported-data.css" rel="stylesheet" type="text/css" />
+
+    <script src="assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="js/app-config.js" type="text/javascript"></script>
+    <script src="js/query.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
+    <script src="js/master.js?v=4.4" type="text/javascript"></script>
+    <script src="assets/js/datatable_boostrap_extend.js"></script>
+    <script src="assets/js/angular.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        document.write(masterHead);
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.multiselect.css" />
+
+    <style>
+
+
+      
+           #ui-multiselect-0-responseDropdown-option-0 {
+         margin-right : 10px;
+        }
+        #ui-multiselect-0-responseDropdown-option-1 {
+         margin-right : 10px;
+        }
+        #ui-multiselect-0-responseDropdown-option-2 {
+         margin-right : 10px;
+        }
+        #ui-multiselect-0-responseDropdown-option-3 {
+         margin-right : 10px;
+        }
+        #ui-multiselect-0-responseDropdown-option-4 {
+         margin-right : 10px;
+        }
+        #ui-multiselect-0-responseDropdown-option-5 {
+         margin-right : 10px;
+        }
+        #ui-multiselect-0-responseDropdown-option-6 {
+         margin-right : 10px;
+        }
+        #ui-multiselect-0-responseDropdown-option-7 {
+         margin-right : 10px;
+        }
+         #ui-multiselect-0-responseDropdown-option-8 {
+         margin-right : 10px;
+        }
+          #ui-multiselect-0-responseDropdown-option-9 {
+         margin-right : 10px;
+        }
+           #ui-multiselect-0-responseDropdown-option-10 {
+         margin-right : 10px;
+        }
+            #ui-multiselect-0-responseDropdown-option-11 {
+         margin-right : 10px;
+        }
+             #ui-multiselect-0-responseDropdown-option-12 {
+         margin-right : 10px;
+        }
+           #ui-multiselect-0-responseDropdown-option-13 {
+         margin-right : 10px;
+        }
+        
+        .bootstrap-timepicker-widget {
+            z-index: 9999 !important;
+        }
+        .datepicker {
+    padding: 10px 16px;
+    border-radius: 2px;
+    font-size: 12px;
+    margin-left: 15px;
+}
+         .ui-multiselect-checkboxes li.ui-multiselect-optgroup-label {
+            text-align: left;
+            font-weight: bold;
+             color: #6f7b8a;
+        }
+        span.ui-multiselect-none  {
+            text-decoration:none;
+            display: none;
+            
+        }
+
+        .ui-multiselect-none span  {
+            text-decoration:none;
+            display: none;
+           
+        }
+        .ui-multiselect-optgroup-label {
+            color: #6f7b8a;
+        }
+        .ui-multiselect-checkboxes {
+            background-color: white;
+             color: #6f7b8a;
+        }
+        a {
+        
+        color: #6f7b8a;
+        }
+
+        #selectActivity_ms {
+            height: 34px;
+            box-sizing:border-box;
+            
+          
+           
+        }
+        .ui-widget-header {
+
+    display: none;
+}
+        .ui-widget-header a {
+             color: #6f7b8a;
+        }
+        .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+  border: 1px solid white;
+   border-radius: 0px;
+             background-image: initial;
+            color: white;
+            background-color: #0090D9;
+            font-weight: normal;
+}
+        .ui-multiselect.ui-widget.ui-state-default.ui-corner-all.ui-state-active {
+        
+        border: 1px solid #cccccc;
+         border-radius: 0px;
+             background-image: initial;
+             color: #6f7b8a;
+            background-color: #e5e9ec;
+         
+            
+            
+           }
+            .ui-multiselect-checkboxes li {
+    clear: both;
+    font-size: 0.9em;
+    padding-right: 0px;
+    padding: 0px;
+}
+
+
+        
+
+        .ui-multiselect.ui-widget.ui-state-default.ui-corner-all {
+        
+               border: 1px solid #cccccc;
+                border-radius: 0px;
+             background-image: initial;
+             color: #6f7b8a;
+            background-color: white;
+        }
+        .ui-multiselect.ui-widget.ui-state-default.ui-corner-all.ui-state-hover {
+        border: 1px solid #cccccc;
+         border-radius: 0px;
+             background-image: initial;
+             color: #6f7b8a;
+            
+           }
+
+        .ui-widget-content {
+            border: 1px solid #dddddd;
+            background: initial;
+            background-color: white;
+        }
+
+        .ui-widget-header {
+          border: 1px solid white;
+             background-image: initial;
+            color: #6f7b8a;
+            background-color: white;
+            font-weight: bold;
+}
+        span.ui-icon.ui-icon-triangle-1-s {
+                background:initial;
+                background-image:url('images/dropdown.png');
+                background-repeat:no-repeat;
+                padding-top:-10px;
+                font-family: 'FontAwesome';
+                content: "\f00d";
+                position: relative;
+                top: -2px;
+                right: 10px;
+                font-size: 12px;
+                 color: #6f7b8a;
+               
+
+        }
+        .ui-widget-content a {
+    color: #6f7b8a;
+}
+
+        .ui-state-default,
+        .ui-widget-content .ui-state-default,
+        .ui-widget-header .ui-state-default {
+            /* styles required for IE to work */
+             color: #6f7b8a;
+            font-weight: normal;
+           
+        }
+
+        .ui-icon,
+        .ui-widget-content .ui-icon {
+            font-family: 'FontAwesome';
+                content: "\f00d";
+                 color: #6f7b8a;
+        }
+
+        .ui-widget-header .ui-icon {
+            font-family: 'FontAwesome';
+                content: "\f00d";
+                 color: #6f7b8a;
+
+
+        }
+
+        .ui-state-default .ui-icon {
+            font-family: 'FontAwesome';
+                content: "\f00d";
+                 color: #6f7b8a;
+        }
+
+        .ui-state-hover .ui-icon,
+        .ui-state-focus .ui-icon {
+           font-family: 'FontAwesome';
+                content: "\f00d";
+                 color: #6f7b8a;
+        }
+
+        .ui-state-active .ui-icon {
+          font-family: 'FontAwesome';
+                content: "\f00d";
+                 color: #6f7b8a;
+        }
+        .ui-icon {
+          
+          font-family: 'FontAwesome';
+           content: "\f00d";
+        }
+        .ui-state-highlight .ui-icon {
+            font-family: 'FontAwesome';
+                content: "\f00d";
+                 color: #6f7b8a;
+        }
+
+        .ui-state-error .ui-icon,
+        .ui-state-error-text .ui-icon {
+            font-family: 'FontAwesome';
+                content: "\f00d";
+                 color: #6f7b8a;
+        }
+
+        .ui-multiselect-checkboxes li.ui-multiselect-optgroup-label {
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 1px solid;
+    margin-bottom: 20px;
+    margin-left : 8px;
+    margin-right :8px;
+}
+
+
+        .ui-multiselect-menu {
+    display: none;
+    padding: 0px;
+    position: absolute;
+    z-index: 10000;
+    text-align: left;
+}
+
+        .ui-multiselect-checkboxes label input {
+    padding-left: 100px;
+    margin-left: 10px;
+}
+        .ui-multiselect-checkboxes li {
+    clear: both;
+    font-size: 0.9em;
+    padding-right: 0px;
+    padding: 0px;
+    margin-bottom: -7px;
+}
+
+
+    </style>
+
+
+</head>
+
+<body>
+    <script>
+        document.write(masterBody);
+        document.write(beginPageContent);
+    </script>
+
+    <div class="page-title">
+        <i class="fa fa-file-text"></i>
+        <h3><span class="semi-bold">Imported Data</span></h3>
+    </div>
+    <input type="hidden" value="" id="inputUserId" />
+    <script>
+        document.getElementById("inputUserId").setAttribute("value", $.cookie('user').userid);
+    </script>
+
+
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="grid simple">
+                <div class="grid-body">
+
+
+
+
+
+                    <div class="select-toolbar filter-texts col-md-12">
+                        <b class="filter-text">Device Hardware ID: &nbsp;</b>
+
+                        <select id="deviceIdDropdown" class="select-style select-2" tabindex="-1" id="selectStatus" autocomplete="off" style="width:20%;">
+                            <option value="-1">All</option>
+                            <option value="-2">Physical Devices Only</option>
+                            <option value="-3">Unkown Devices</option>
+                        </select>
+                        &nbsp; &nbsp;
+                        <b class="filter-text">Response Status: &nbsp;</b>
+                        <select tabindex="-1" id="responseDropdown" multiple="multiple" style="width:20%;">
+                            <optgroup label="Custom">
+                                <option value="0">Success - Chunk Recorded</option>
+                                <option value="1">Success - Data Recorded</option>
+                                <option value="11">Success Data Recorded - Duplicate Data</option>
+                                <option value="2">Success Data Recorded - Duplicate Truncated</option>
+                                <option value="3">Failed - Illogical Event Headers</option>
+                                <option value="4">Failed - Invalid Data Format</option>
+                                <option value="5">Failed - Duplicate Data</option>
+                                <option value="6">Failed - Chunks not in Order</option>
+                                <option value="7">Failed - Time in the Future</option>
+                                <option value="8">Failed - Wrong Number of Datapoints</option>
+                                <option value="9">Failed - No Previous Chunks Found</option>
+                                <option value="10">Failed - Parsing Error</option>
+                                <option value="12">Failed - Unknown Device</option>
+                            </optgroup>
+                        </select>
+
+                    <!--
+                        <select id="responseDropdown" class="select-style select-2" tabindex="-1" id="selectStatus" autocomplete="off" style="width:20%;">
+                            <option value="-1">All</option>
+                            <option value="200">Success</option>
+                            <option value="failed">Failed</option>
+                        </select>
+                    -->
+                    
+                </div>
+
+                    <div class="select-toolbar filter-texts col-md-12" style="margin-top: 20px;">
+
+                        <b class="filter-text col-md-2" style="margin-left:-15px;">Start Date: &nbsp;</b>
+                        <div class="input-append success date col-md-2 " id="check"style="margin-left: -11px; width:185px;">
+                            <input class="form-control date-inputs prescription-input-change" id="startDate" type="text" data-toggle="tooltip"  data-placement="top" data-original-title="Optional">
+                            <span class="add-on date-icons monitor-dates" style="border: 1px solid #E5E9EC !important;border-left:none !important;">
+                                <span class=""></span><i class="fa fa-calendar-o open-datetimepicker "></i>
+                            </span>
+                        </div> 
+                        <b class="filter-text col-md-2" style="margin-left: 32px;">Start Time: &nbsp;</b>
+                        <div class="col-md-1" style="width:150px; margin-left : -41px;">
+                            <div class="input-group bootstrap-timepicker timepicker">
+                                <input id="timepicker1" type="text" class=" form-control input-small">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-success" id="reloadTime" style="margin-left: 80px;">Reload Table</button>
+                        </div>
+                    </div>
+
+                            <br />
+                            <br />
+
+
+                    
+                            <br />
+                            <div class="table table-responsive">
+                                <table class="table table-bordered" id="devices" style="table-layout: fixed;">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <h4>Device</h4>
+                                            </th>
+
+                                            <th>
+                                                <h4>Gateway</h4>
+                                            </th>
+
+                                            <th>
+                                                <h4>TimeStamp</h4>
+                                            </th>
+                                            <th>
+                                                <h4>Data</h4>
+                                            </th>
+
+                                            <th>
+                                                <h4></h4>
+                                            </th>
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+
+
+
+                                        <!--<div id="spin" style="width:100%;height:100%;position:relative;"></div> -->
+
+                                    </tbody>
+                                </table>
+                                <button class="btn btn-lg" id="loadMore" style="display:none">Load More</button>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+
+
+        <div class="modal fade" id="modalDeleteMonitor">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Confirm Release Device</h4>
+                    </div>
+                    <div class="modal-body" style="background-color: white;"> Are you sure you want to release this device? </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                        <button type="button" class="btn btn-primary" id="btn-modal-delete-monitor">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <script>
+            document.write(endPageContent);
+            document.write(masterFooter);
+        </script>
+
+        <script type="text/javascript" src="assets/prettify.js"></script>
+        <script type="text/javascript" src="js/jquery.multiselect.js"></script>
+
+
+        <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+        <script type="text/javascript">
+
+            // Set default values for the date/time inputs.
+            var d = new Date();
+            var date = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+            var time = d.getHours() + ':' + d.getMinutes();
+            $('#startDate').attr('value', date);
+            $('#timepicker1').attr('value', time);
+            $('#timepicker1').timepicker({
+                'timeFormat': 'H:i:s'
+
+            });
+            $("#check").datepicker({
+                format: 'yyyy-mm-dd',
+                inline: true,
+                maxDate: '0',
+                onSelect: function (dateText, inst) {
+                   
+                }
+            });
+
+
+
+
+        </script>
+
+        <!-- notif -->
+        <script src="assets/plugins/jquery-notifications/js/messenger.min.js" type="text/javascript"></script>
+        <script src="assets/plugins/jquery-notifications/js/messenger-theme-future.js" type="text/javascript"></script>
+        <!-- JS ONY FOR DEMO-->
+        <script type="text/javascript" src="assets/plugins/jquery-notifications/js/demo/location-sel.js"></script>
+        <script type="text/javascript" src="assets/plugins/jquery-notifications/js/demo/theme-sel.js"></script>
+        <script type="text/javascript" src="assets/plugins/jquery-notifications/js/demo/demo.js"></script>
+        <script type="text/javascript" src="assets/js/notifications.js"></script>
+        <script src="assets/js/Helpers.js" type="text/javascript"></script>
+
+        <script src="js/exportFiles.js" type="text/javascript"></script>
+        <script src="assets/js/fnReloadAjax.js" type="text/javascript"></script>
+        <script src="js/importedData.js" type="text/javascript"></script>
+
+</body>
+
+
+
+</html>

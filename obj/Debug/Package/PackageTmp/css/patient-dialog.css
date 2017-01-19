@@ -1,0 +1,766 @@
+.patient-header {
+    background-color: #0090D9;
+}
+
+.patient-name {
+    text-align: left;
+    color: white !important;
+    font-weight: 600;
+    font-size: 25px;
+    float: left;
+}
+
+.patient-number {
+    text-align: left;
+    color: white !important;
+    font-weight: 100 !important;
+    font-size: 25px;
+}
+
+.modal-buttons-header {
+    background-color: #EFF2F3;
+    padding-bottom: 5px !important;
+    border: none !important;
+}
+
+.patient-modal-content {
+    background-color: rgba(233, 233, 233, 0) !important;
+}
+
+.patient-modal-body {
+    background-color: rgba(233, 233, 233, 0.9) !important;
+    min-height: 350px;
+}
+
+.patient-modal .form-label {}
+
+.tab-content {
+    background-color: rgba(233, 233, 233, 0) !important;
+}
+
+.picker-clock {
+    border-top: 1px solid #E5E9EC !important;
+    border-right: 1px solid #E5E9EC !important;
+    border-bottom: 1px solid #E5E9EC !important;
+    background-color: white !important;
+}
+
+.picker-clock-icon {
+    background-color: white;
+}
+
+.timepicker-24:focus ~ span,
+.timepicker-24:focus ~ span > i {
+    background-color: #F4F5F7 !important;
+    border-top: 1px solid #F4F5F7 !important;
+    border-right: 1px solid #F4F5F7 !important;
+    border-bottom: 1px solid #F4F5F7 !important;
+}
+
+.no-end-date {
+    float: right;
+    margin-bottom: -10px !important;
+}
+
+.clockpicker-popover {
+    z-index: 99999 !important;
+}
+
+.clockpicker-input {
+    width: 70px !important;
+}
+
+.clockpicker-div {
+    width: 13.667% !important;
+}
+
+.clockpicker-add-btn {
+    width: 77px;
+    background-color: white !important;
+    color: lightgrey !important;
+    border-bottom-right-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-left-radius: 2px !important;
+    border-top-left-radius: 2px !important;
+}
+
+.clockpicker-clock-icon {
+    position: absolute;
+    background-color: white;
+    height: 36px;
+    margin-top: 4px;
+    color: #ABABAB;
+    top: -4px;
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    padding-top: 12px;
+    padding-right: 10px;
+}
+
+.date-icons {
+    background-color: white !important;
+    color: #ABABAB !important;
+    border: none !important;
+    padding-top: 1px;
+    margin-top: 1px;
+    height: 35px !important;
+}
+
+.date-inputs {
+    width: 150px !important;
+    margin-right: -3px;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.required {
+    border: 1px solid #3494d1 !important;
+}
+
+.footer-btns {
+    width: 100px;
+}
+
+div.permissions {
+    background-color: rgba(233, 233, 233, 0.) !important
+}
+
+div.notification {
+    margin-bottom: 0px;
+    border-bottom: 1px solid #F2E8E8;
+    box-shadow: 1px 2px 2px 0.1px;
+}
+
+div.reminder {
+    height: 54px;
+    background-color: white;
+    padding-top: 8px;
+}
+
+div.reminder:hover {
+    background-color: #F5F5F5;
+}
+
+div.reminder img.icon-email {
+    float: left;
+    opacity: 0.25;
+    width: 45px;
+    padding-top: 3px;
+    margin-left: -1px;
+}
+
+div.reminder img.icon-sms {
+    float: left;
+    opacity: 0.25;
+    width: 45px;
+    padding-top: 5px;
+    margin-left: -2px;
+    margin-right: 2px;
+}
+
+div.reminder img.icon-phone {
+    float: left;
+    opacity: 0.25;
+    width: 35px;
+    padding-top: 3px;
+    margin-right: 9px;
+    margin-left: 1px;
+}
+
+div.reminder img.icon-edit {
+    float: right;
+    opacity: 0.7;
+    height: 30px;
+    margin-top: 5px;
+    margin-right: 15px;
+    display: none;
+    cursor: pointer;
+    cursor: hand;
+}
+
+div.reminder img.cancel-edit,
+div.reminder img.check-edit {
+    float: right;
+    opacity: 0.7;
+    height: 30px;
+    margin-top: 5px;
+    margin-right: 15px;
+    display: none;
+    cursor: pointer;
+    cursor: hand;
+}
+
+div.reminder:hover img.icon-edit {
+    display: inline-block;
+}
+
+div.reminder img.icon-remove {
+    float: right;
+    opacity: 0.7;
+    width: 32px;
+    padding-top: 4px;
+    cursor: pointer;
+    cursor: hand;
+    display: none;
+}
+
+div.reminder:hover img.icon-remove {
+    display: inline-block;
+}
+
+div.add-notification {
+    margin-top: 15px;
+}
+
+div.add-reminder {
+    height: 110px;
+    background-color: #FFF;
+    box-shadow: 1px 2px 2px 0.1px;
+    padding-top: 11px;
+}
+
+div.add-notification div.notification-type {
+    margin-top: 15px;
+}
+
+div.by {
+    margin-top: 18px;
+    font-size: 18px;
+    margin-left: 1px;
+    margin-right: -91px;
+}
+
+div.to {
+    margin-top: 18px;
+    font-size: 18px;
+    margin-left: -50px;
+    margin-right: -40px;
+}
+
+div.notification-to {
+    margin-top: 17px;
+    margin-left: -20px;
+}
+
+input.notification-to {
+    height: 32px;
+    border-radius: 3px;
+    width: 74%;
+    margin-bottom: 10px;
+}
+
+span.notification-to {
+    line-height: 15px;
+    font-size: 11px;
+}
+
+span.notification-to > span {
+    display: block;
+}
+
+.notification-save {
+    float: right;
+    margin-top: 17px;
+    height: 32px;
+    width: 100px;
+}
+
+.add-notification-note {
+    position: absolute;
+    left: 36px;
+    bottom: 42px;
+    font-size: 11px;
+}
+
+div.notification-txt {
+    margin-top: 8px;
+    font-size: 16px;
+    float: left;
+    margin-left: 20px;
+}
+
+img.sms-test-notification {
+    float: right;
+    height: 26px;
+    margin-top: 9px;
+    margin-right: 4px;
+    display: none;
+}
+
+img.email-test-notification {
+    float: right;
+    height: 24px;
+    margin-top: 7px;
+    margin-right: 4px;
+    display: none;
+}
+
+img.phone-test-notification {
+    float: right;
+    margin-top: 8px;
+    height: 27px;
+    margin-right: 6px;
+    display: none;
+}
+
+div.reminder:hover img.test-notification {
+    display: inline-block;
+    opacity: 0.7;
+    cursor: pointer;
+    cursor: hand;
+}
+
+img.sms-test-notification + .tooltip.left {
+    margin-top: -3px;
+}
+
+img.phone-test-notification + .tooltip.left {
+    margin-top: -2px;
+}
+/*
+img.sms-test-notification + .tooltip.left .tooltip-arrow {
+      margin-top: -4px;
+    margin-right: 1px !important;
+}
+
+img.phone-test-notification + .tooltip.left .tooltip-arrow {
+    margin-top: -4px;
+       margin-right: 1px !important;
+}
+img.email-test-notification + .tooltip.left .tooltip-arrow {
+    margin-top: -4px;
+       margin-right: 1px !important;
+}
+*/
+
+div.add-permission {
+    margin-top: 15px;
+}
+
+div.permission-email {
+    margin-top: 15px;
+    margin-right: -23px;
+}
+
+input.permission-email {
+    height: 36px;
+    border-radius: 3px;
+    width: 100%;
+}
+
+.permission-role-select {
+    width: 100% !important;
+}
+
+div.add-permission div.permission-role {
+    margin-top: 15px;
+}
+
+div.permission-save {
+    float: right;
+    height: 32px;
+    margin-top: 9px;
+}
+
+button.permission-save {
+    float: right;
+    width: 100%;
+    margin-top: 7px;
+}
+
+div.add-new-permission {
+    background-color: #FFF;
+    box-shadow: 1px 2px 2px 0.1px;
+    margin-top: 15px;
+    padding-top: 7px;
+    height: 105px;
+}
+
+div.monitor-permission:hover {
+    background-color: #F5F5F5;
+}
+
+span.new-permission-note {
+    position: absolute;
+    left: 37px;
+    bottom: 40px;
+    font-size: 11px;
+}
+
+.permission-txt {
+    margin-top: 8px;
+    font-size: 16px;
+    float: left;
+    margin-left: 20px;
+}
+
+div.monitor-permission img.icon-remove-permission {
+    float: right;
+    opacity: 0.7;
+    width: 32px;
+    padding-top: 4px;
+    cursor: pointer;
+    cursor: hand;
+    display: none;
+}
+
+div.monitor-permission i.icon-resend-permission {
+    margin-top: 5px;
+    font-size: 31px;
+    float: right;
+    margin-left: 5px;
+    margin-right: 9px;
+    color: black;
+    opacity: 0.65;
+    cursor: pointer;
+    cursor: hand;
+    display: none;
+}
+
+div.monitor-permission:hover i.icon-resend-permission,
+div.monitor-permission:hover img.icon-remove-permission {
+    display: inline-block;
+}
+
+div.monitor-permission {
+    height: 54px;
+    background-color: #FFF;
+    box-shadow: 1px 2px 2px 0.1px;
+    margin-bottom: 0px;
+    padding-top: 5px;
+    border-bottom: 1px solid #F2E8E8;
+}
+
+div.monitor-permission span.permission-pending {
+    color: #dd7f7f;
+    font-size: 16px;
+    float: left;
+    margin-top: 7px;
+    margin-left: 11px;
+    font-weight: 200;
+    padding-top: 1px;
+}
+
+i.remove-time {
+    color: #CECFD1;
+    font-size: 25px;
+    margin-top: 7px;
+    margin-left: 12px;
+    margin-right: 9px;
+    cursor: pointer;
+    cursor: hand;
+}
+
+i.remove-time:hover {
+    color: rgb(83, 151, 201);
+}
+
+#dash {
+    margin-left: -7px;
+}
+
+.time-error {
+    border: 1px solid #F35958 !important;
+    border-right: none !important;
+}
+
+.time-error-span {
+    border: 1px solid #F35958 !important;
+    border-left: none !important;
+}
+
+.error-control input {
+    border: 1px solid #F35958 !important;
+}
+
+.required {
+    border: 1px solid #3494d1 !important;
+}
+
+.tooltip-inner {
+    white-space: pre;
+    line-height: 9px;
+    max-width: 1000px !important;
+    z-index: 9999 !important;
+}
+/*
+.grid-body .tooltip-inner {
+    white-space: pre;
+    line-height: 13px;
+    max-width: 1000px !important;
+    z-index: 9999 !important;
+}
+
+.time-div .tooltip-inner, #divPatientId .tooltip-inner{
+    white-space: pre;
+    line-height: 7px;
+    max-width: 1000px !important;
+    z-index: 9999 !important;
+}
+*/
+
+.notification-txt .select2-choice {
+    margin-top: -5px;
+}
+
+.notification-edit-input {
+    float: right;
+    margin-top: -3px;
+    margin-left: 10px;
+}
+
+.notification-edit {
+    display: none;
+}
+
+div.reminder .tooltip.left {
+    margin-left: -13px !important;
+}
+
+div.monitor-permission .tooltip.left {
+    margin-left: -13px !important;
+}
+
+img.icon-remove-permission + .tooltip.left {
+    margin-top: 2px;
+}
+
+img.icon-resend-permission + .tooltip.left {
+    margin-top: -1px;
+}
+
+.input-append .add-on,
+.input-prepend .add-on {
+    border-left: 1px medium #000305 !important;
+}
+/*
+.dosage-time-div {
+    width: 22%;
+}
+*/
+.dosage-time-div {
+    margin-bottom: 15px;
+    padding-left: 30px;
+}
+.time-label{
+/*    margin-left: -15px;*/
+}
+/*
+.dosage-time-div:first-of-type {
+    margin-left: 15px;
+}
+*/
+
+input.dosage-time + .tooltip.right {
+    margin-left: 35px !important;
+    z-index: 9999 !important;
+}
+
+input.dosage-time + .tooltip.right .tooltip-arrow {
+    margin-left: 0px !important;
+}
+
+input[type="text"],
+.dosage-time {
+    line-height: normal !important;
+}
+
+input.date-inputs + .tooltip.right {
+    margin-left: 35px !important;
+    z-index: 9999 !important;
+}
+
+#releaseDevice {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.release-device {
+    cursor: pointer;
+    cursor: hand;
+    padding-top: 31px;
+    margin-bottom: 4px;
+}
+
+.btn-release {
+    width: 114px;
+    height: 28px;
+    border-radius: 0px;
+    font-size: 12px;
+}
+
+#patientModal {
+    width: 103%;
+}
+
+div.drop-btn-group {
+    margin-bottom: 15px;
+    padding-right: 0px;
+}
+
+div.drop-btn-group > button {
+    background-color: #FFF;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    width: 67px;
+}
+
+div.drop-btn-group > button:nth-child(2) {
+    border-top-left-radius: 3px !important;
+    border-bottom-left-radius: 3px !important;
+}
+
+div.drop-btn-group > button:nth-child(3) {
+    border-left: 1px solid #CBC8C8;
+    border-right: 2px solid #CBC8C8;
+}
+
+div.drop-btn-group > .btn.active {
+    background-color: #0090d0;
+    color: white;
+}
+
+div.drop-btn-group i {
+    font-size: 25px !important;
+}
+
+div.eye-btn-group {
+    margin-bottom: 15px;
+    padding-left: 0px;
+}
+
+div.eye-btn-group > button {
+    background-color: #FFF;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    width: 73px;
+}
+
+div.eye-btn-group > button:nth-child(2) {
+    border-top-left-radius: 3px !important;
+    border-bottom-left-radius: 3px !important;
+}
+
+div.eye-btn-group > button:nth-child(2) {
+    border-right: 2px solid #CBC8C8;
+}
+
+div.eye-btn-group > .btn.active {
+    background-color: #0090d0;
+    color: white;
+}
+
+div.eye-btn-group i {
+    font-size: 25px !important;
+}
+
+.prescription-label-medication {
+    font-size: 22px;
+    color: #0090d9;
+    margin-bottom: 17px;
+}
+
+.prescription-label-dosage {
+    font-size: 22px;
+    color: #0090d9;
+    margin-bottom: 17px;
+    margin-top: 28px;
+}
+
+.plus-time-icon {
+    font-family: FontAwesome!important;
+    font-size: 23px !important;
+}
+
+.time-div div:nth-child(1) {
+    margin-left: -15px;
+}
+
+.plus-time-icon::-moz-placeholder {
+    color: #EEEEEE !important;
+}
+
+.plus-time-icon::-webkit-input-placeholder {
+    color: #EEEEEE !important;
+}
+
+div.drop-btn-group + .tooltip.right {
+    margin-left: -50px;
+    margin-top: 12px;
+}
+
+div.eye-btn-group + .tooltip.right {
+    margin-left: -128px;
+    margin-top: 12px;
+}
+
+input.dosage-time {
+    width: 80px !important;
+    border: 1px solid rgb(255, 255, 255);
+    border-right: 1px solid #E4E4E4 !important;
+}
+
+.input-append .add-on,
+.input-prepend .add-on {
+    border: none !important;
+}
+
+input-append .add-on,
+.input-prepend .add-on {
+    border: none !important;
+    border-left: 1px medium none #000 !important;
+}
+
+#modalDeleteMonitor.modal {
+    overflow-y: hidden;
+}
+
+#releaseSpinner {
+    height: 31px;
+    float: right;
+    margin-left: 13px;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    visibility: hidden;
+}
+
+#btn-modal-cancel-delete-monitor {
+    float: right;
+}
+
+#btn-modal-delete-monitor {
+    float: right;
+    margin-right: 15px;
+}
+
+.form-control {
+    border: 1px solid #E5E9EC;
+}
+
+span.monitor-dates {
+    border: 1px solid #E5E9EC;
+    border-left: medium none;
+    border-top: 1px solid #E5E9EC !important;
+    border-right: 1px solid #E5E9EC !important;
+    border-bottom: 1px solid #E5E9EC !important;
+    border-image: none !important;
+    height: 37px !important;
+    margin-top: 0px;
+}
+
+.error-monitor-dates {
+    border: 1px solid #F35958 !important;
+}
+
+span.error-monitor-dates {
+    border: 1px solid #F35958 !important;
+    border-left: none !important;
+}

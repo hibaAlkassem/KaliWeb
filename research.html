@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html ng-app="researchApp">
+
+<head>
+
+    <script src="assets/js/googleAnalytics.js" type="text/javascript"></script>
+
+    <link href="assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/jquery-notifications/css/messenger.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="assets/plugins/jquery-notifications/css/messenger-theme-flat.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="css/device-manager.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="css/circlespinner.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <link href="css/research-list.css" rel="stylesheet" type="text/css" media="screen" />
+
+
+
+    <link href="assets/plugins/jquery-circliful/css/jquery.circliful.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="assets/plugins/jquery-circliful/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="screen" />
+
+
+
+    <!-- BELOW CSS FILE IS NOT REQUIRED -->
+    <style>
+        .datepicker-dropdown {
+            z-index: 9999 !important;
+        }
+
+    </style>
+    <script src="assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="js/app-config.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.cookie.js"></script>
+    <script src="assets/js/angular.min.js" type="text/javascript"></script>
+    <script src="assets/js/angular-cookies.js" type="text/javascript"></script>
+    <script src="controllers/researchController.js" type="text/javascript"></script>
+    <script src="controllers/researchDialogController.js" type="text/javascript"></script>
+    <script src="assets/js/ui-bootstrap-tpls-0.13.4.min.js" type="text/javascript"></script>
+    <script src="js/master.js" type="text/javascript"></script>
+
+    <script>
+        document.write(masterHead);
+
+    </script>
+</head>
+
+<body ng-controller="researchController" ng-cloak>
+    <script>
+        document.write(masterBody);
+        document.write(beginPageContent);
+
+    </script>
+    <div class="page-title"> <i class="fa fa-flask"></i>
+        <h3><span class="semi-bold">Research</span></h3> </div>
+    <input type="hidden" value="" id="inputUserId" />
+    <script>
+        document.getElementById("inputUserId").setAttribute("value", $.cookie('user').userid);
+
+    </script>
+
+
+
+    <div class="row" ng-show="loadingResearch">
+        <div class="col-md-12 ">
+            <div class="grid simple">
+                <div class="grid-body loading-research">
+
+                    <div id="researchSpinner">
+                        <br />
+                        <br />
+                        <div class="sk-spinner sk-spinner-circle research-spinner">
+
+                            <div class="sk-circle1 sk-circle"></div>
+                            <div class="sk-circle2 sk-circle"></div>
+                            <div class="sk-circle3 sk-circle"></div>
+                            <div class="sk-circle4 sk-circle"></div>
+                            <div class="sk-circle5 sk-circle"></div>
+                            <div class="sk-circle6 sk-circle"></div>
+                            <div class="sk-circle7 sk-circle"></div>
+                            <div class="sk-circle8 sk-circle"></div>
+                            <div class="sk-circle9 sk-circle"></div>
+                            <div class="sk-circle10 sk-circle"></div>
+                            <div class="sk-circle11 sk-circle"></div>
+                            <div class="sk-circle12 sk-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row" ng-show="!hasResearch&& !loadingResearch">
+        <div class="col-md-12 ">
+            <div class="grid simple">
+                <div class="grid-body loading-research empty-list">
+
+
+                    <div class="empty-list-content">
+
+                        <p><b>You Currently don't have any research listed.</b> </p>
+                        <p>Add a New Research for each research project you manage.</p>
+                        <p>&nbsp;</p>
+
+
+
+                        <p>
+                            <button class="btn btn-primary btn-cons new-research" type="button" id="btn-new-monitor" m-type="new">New Research</button>
+                        </p>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row" ng-show="hasResearch">
+        <div class="col-md-12 ">
+            <div class="grid simple">
+                <div class="grid-body">
+
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <button class="btn btn-primary btn-cons new-research" m-type="new" type="button" id="btn-new-monitor">New Research</button>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+                    <!-- Patient List Start -->
+
+                    <div id="researchList" class="row research-list">
+
+                        <div class="research-list-header row">
+
+                            <div class="col-sm-4"><b>RESEARCH</b></div>
+                            <div class="col-sm-4"><b>RESEARCH TEAM</b>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row view-details  research-data" ng-repeat="r in filteredResearch | startFrom:(currentPage - 1) * pageSize | limitTo: pageSize | filter: filterResearch" on-finish-render="doneRepeat()" research-id="{{r.ResearchId}}">
+
+                            <div class="col-sm-4 research-title" >
+                                <span class="r-name"><b>{{r.ResearchName}}</b></span>
+                            </div>
+
+
+
+                            <div class="col-sm-4 research-sharing">
+                                <ul>
+                                    <li ng-repeat="per in r.Permissions" ng-if="$index < 3 "> <span class="{{per.PermissionId == -1 && 'created-research' || ''}} edit-research-icon" m-type="edit"  r-id="{{r.ResearchId}}">{{per.RxUserId == userId && 'You' || (per.Username == null && per.Email || per.Username)}} ({{per.Role}}) </span> </li>
+
+                                    <li ng-repeat="per in r.Permissions" ng-if="$index == 3 "><span class="more-sharing  edit-research-icon" m-type="edit" r-id="{{r.ResearchId}}">and {{r.Permissions.length - 3}} more</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="options col-sm-5">
+
+                                <div class="options-icons">
+                                    <a href="research-details?rid={{r.ResearchId}}"> <img src="images/eye.png" data-toggle="tooltip" data-title="Click to view 
+
+research details" class="view-details-icon"></img>
+                                    </a>
+                                    <img src="images/pen.png" r-id="{{r.ResearchId}}" data-toggle="tooltip" data-title="Click to edit 
+
+research settings" class="edit-research-icon edit-research" m-type="edit">
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                        <!--
+
+                        <div class="row research-data" research-id="">
+
+                            <div class="col-sm-11 view-details patient-nam">
+                                <span class="r-name"><b>Test Peter</b></span>
+                            </div>
+
+                            <div class="options col-sm-1">
+
+                                <div class="options-icons">
+                                    <a> <img src="images/eye.png" data-toggle="tooltip" data-title="Click to view research data" class="view-details-icon"></img>
+                                    </a>
+                                    <img src="images/pen.png" data-toggle="tooltip" data-title="Click to edit research settings" class="edit-research-icon">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="row research-data" research-id="">
+
+                            <div class="col-sm-11 view-details patient-nam">
+                                <span class="r-name"><b>Esthelamin - Phase 3</b></span>
+                            </div>
+
+                            <div class="options col-sm-1">
+
+                                <div class="options-icons">
+                                    <a> <img src="images/eye.png" data-toggle="tooltip" data-title="Click to view research data" class="view-details-icon"></img>
+                                    </a>
+                                    <img src="images/pen.png" data-toggle="tooltip" data-title="Click to edit research settings" class="edit-research-icon">
+                                </div>
+
+                            </div>
+
+                        </div>
+-->
+
+                    </div>
+
+                    <!-- Research List End -->
+
+
+
+                    <div class="row">
+
+
+
+                        <pagination ng-change="filterResearch" total-items="totalItems" ng-model="currentPage" items-per-page="pageSize" style="float:right;" id="researchPaging"></pagination>
+                        <div id="tblmonitors_info" style="float:right; padding:25px;padding-right:2px;" class="">Showing {{ (currentPage - 1) * pageSize + (totalItems == 0 ? 0 : 1)}} to {{ (currentPage) * pageSize > totalItems? totalItems : (currentPage) * pageSize }} of {{totalItems}} research</div>
+
+
+
+                        <script id="template/pagination/pagination.html" type="text/ng-template">
+                            <ul class="pagination">
+                                <li ng-if="boundaryLinks" ng-class="{disabled: noPrevious()}">
+                                    <a href ng-click="selectPage(1)" title="First Page"> <span class="fa fa-chevron-left"></span>
+                                    </a>
+                                </li>
+                                <li ng-if="directionLinks" ng-class="{disabled: noPrevious()}"><a href ng-click="selectPage(page - 1)" title="Previous Page"><span class="fa fa-chevron-left"></span></a>
+                                </li>
+                                <li ng-repeat="page in pages track by $index" ng-class="{active: page.active}"><a href ng-click="selectPage(page.number)">{{page.text}}</a>
+                                </li>
+                                <li ng-if="directionLinks" ng-class="{disabled: noNext()}"><a href ng-click="selectPage(page + 1)" title="Next Page"><span class="fa fa-chevron-right"></span></a>
+                                </li>
+                                <li ng-if="boundaryLinks" ng-class="{disabled: noNext()}"><a href ng-click="selectPage(totalPages)" title="Last Page"><span class="fa fa-chevron-right"></span> </a>
+                                </li>
+                            </ul>
+                        </script>
+                        <button class="btn btn-primary btn-cons new-research" m-type="new" type="button" id="btn-new-monitor" style="float: left;margin-top: 17px;margin-left: 15px;">New Research</button>
+
+
+
+                    </div>
+
+
+
+                    <!--
+
+
+                    <br />
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="btn btn-primary btn-cons" type="button" id="btn-new-monitor">New Patient</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="grid simple transparent" id="new-monitor-wrapper" style="overflow: hidden; display: none;">
+                                <div class="grid-title no-border">
+                                    <h4 class="semi-bold">Assign a Device </h4> </div>
+                                <div class="grid-body"> </div>
+                            </div>
+                        </div>
+                    </div>
+-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--<%--start modal permissions--%>-->
+    <!--<%--start modal--%>-->
+
+
+
+
+
+
+
+
+
+
+    <!--<%--end modal add monitor--%>-->
+    <!--<%--hello world--%>-->
+    <script>
+        document.write(endPageContent);
+        document.write(masterFooter);
+
+    </script>
+
+    <!-- notif -->
+    <script src="assets/plugins/jquery-notifications/js/messenger.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/jquery-notifications/js/messenger-theme-future.js" type="text/javascript"></script>
+    <!-- JS ONY FOR DEMO-->
+    <script type="text/javascript" src="assets/plugins/jquery-notifications/js/demo/location-sel.js"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-notifications/js/demo/theme-sel.js"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-notifications/js/demo/demo.js"></script>
+    <script type="text/javascript" src="assets/js/notifications.js"></script>
+    <script src="assets/js/Helpers.js" type="text/javascript"></script>
+    <!--<script src="js/monitorsHandler.js" type="text/javascript"></script>-->
+
+    <link href="assets/plugins/bootstrap-timepicker-gh-pages/css/bootstrap-timepicker.css" rel="stylesheet" type="text/css" />
+    <script src="assets/plugins/bootstrap-timepicker-gh-pages/js/bootstrap-timepicker.js" type="text/javascript"></script>
+
+    <script src="assets/plugins/jquery-circliful/js/jquery.circliful.js" type="text/javascript"></script>
+
+
+    <ng-include src="'partials/researchdialog.html'"></ng-include>
+
+
+
+    <!--    <script src="assets/plugins/boostrap-clockpicker/bootstrap-clockpicker.min.js" type="text/javascript"></script>-->
+
+</body>
+
+</html>

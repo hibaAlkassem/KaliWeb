@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <script src="assets/js/googleAnalytics.js" type="text/javascript"></script>
+
+   <link href="assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
+   <link href="assets/plugins/jquery-notifications/css/messenger.css" rel="stylesheet" type="text/css" media="screen" />
+   <link href="assets/plugins/jquery-notifications/css/messenger-theme-flat.css" rel="stylesheet" type="text/css" media="screen" />
+   <link href="css/dropdown.css" rel="stylesheet" type="text/css" />
+      <link href="css/device-manager.css" rel="stylesheet" type="text/css" media="screen" />
+   <link href="css/circlespinner.css" rel="stylesheet" type="text/css" media="screen" />
+   <!-- BELOW CSS FILE IS NOT REQUIRED -->
+   <style>
+      .datepicker-dropdown {
+         z-index: 9999 !important;
+      }
+   </style>
+   <script src="assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+   <script src="js/app-config.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.cookie.js"></script>
+   <script src="js/master.js" type="text/javascript"></script>
+   <script>
+      document.write(masterHead);
+   </script>
+</head>
+
+<body>
+   <script>
+      document.write(masterBody);
+      document.write(beginPageContent);
+   </script>
+   <div class="page-title"> <i class="fa fa-user"></i>
+      <h3><span class="semi-bold">Device Manager</span></h3> </div>
+   <input type="hidden" value="" id="inputUserId" />
+   <script>
+      document.getElementById("inputUserId").setAttribute("value", $.cookie('user').userid);
+   </script>
+   <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+         <div class="grid simple">
+            <div class="grid-body">
+               <div class=""> Show:
+                   <select  id="selectPrescriptionStatus" style="width: 20% !important; " class="select-style select-2">
+                   <option value="-1">All</option>
+                   
+                   </select>
+                  <br />
+                  <br /> </div>
+               <div class="table table-responsive">
+                  <table class="table table-bordered" id="tblmonitors">
+                     <thead>
+                        <tr>
+                           <th>
+                              <h4>Patient</h4> </th>
+                           <th>
+                              <h4>Medicine</h4> </th>
+                           <th>
+                              <h4>Kali Device</h4> </th>
+                           <th>
+                              <h4>Sharing</h4> </th>
+                           <th>
+                              <h4>Actions</h4> </th>
+                        </tr>
+                     </thead>
+                     <tbody>
+
+   
+
+
+                         <!--<div id="spin" style="width:100%;height:100%;position:relative;"></div> -->
+
+                     </tbody>
+                      
+                  </table>
+                   <div id="tableSpinner">
+                       <br /><br />
+                       <div class="sk-spinner sk-spinner-circle">
+
+                           <div class="sk-circle1 sk-circle"></div>
+                           <div class="sk-circle2 sk-circle"></div>
+                           <div class="sk-circle3 sk-circle"></div>
+                           <div class="sk-circle4 sk-circle"></div>
+                           <div class="sk-circle5 sk-circle"></div>
+                           <div class="sk-circle6 sk-circle"></div>
+                           <div class="sk-circle7 sk-circle"></div>
+                           <div class="sk-circle8 sk-circle"></div>
+                           <div class="sk-circle9 sk-circle"></div>
+                           <div class="sk-circle10 sk-circle"></div>
+                           <div class="sk-circle11 sk-circle"></div>
+                           <div class="sk-circle12 sk-circle"></div>
+                       </div>
+                   </div>
+               </div>
+               <br />
+               <div class="row">
+                  <div class="col-md-12">
+                     <button class="btn btn-primary btn-cons" type="button" id="btn-new-monitor">Assign a Device</button>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-10 col-md-offset-1">
+                     <div class="grid simple transparent" id="new-monitor-wrapper" style="overflow: hidden; display: none;">
+                        <div class="grid-title no-border">
+                           <h4 class="semi-bold">Assign a Device </h4> </div>
+                        <div class="grid-body"> </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!--<%--start modal permissions--%>-->
+   <!--<%--start modal--%>-->
+   <div class="modal fade" id="modalPermissions">
+      <div class="modal-dialog modal-lg">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Done</span> </button>
+               <h4 class="modal-title">Edit Permissions</h4> </div>
+            <div class="modal-body" style="background-color: white;">
+               <div class="grid simple">
+                  <div class="grid-title no-border">
+                     <div class="col-md-3" style="background-color: #F3F5F6;">
+                        <h5 class="semi-bold">USER</h5> </div>
+                     <div class="col-md-3" style="background-color: #F3F5F6;">
+                        <h5 class="semi-bold">ROLE</h5> </div>
+                     <div class="col-md-4" style="background-color: #F3F5F6;">
+                        <h5 class="semi-bold">PERMISSIONS</h5> </div>
+                     <div class="col-md-2" style="background-color: #F3F5F6;">
+                        <h5>&nbsp;</h5> </div>
+                  </div>
+                  <br />
+                  <br />
+                  <div class="grid-body no-border" id="permission-form">
+                      <div id="spinner">
+                          <br /><br />
+                          <div class="sk-spinner sk-spinner-circle">
+
+                              <div class="sk-circle1 sk-circle"></div>
+                              <div class="sk-circle2 sk-circle"></div>
+                              <div class="sk-circle3 sk-circle"></div>
+                              <div class="sk-circle4 sk-circle"></div>
+                              <div class="sk-circle5 sk-circle"></div>
+                              <div class="sk-circle6 sk-circle"></div>
+                              <div class="sk-circle7 sk-circle"></div>
+                              <div class="sk-circle8 sk-circle"></div>
+                              <div class="sk-circle9 sk-circle"></div>
+                              <div class="sk-circle10 sk-circle"></div>
+                              <div class="sk-circle11 sk-circle"></div>
+                              <div class="sk-circle12 sk-circle"></div>
+                          </div>
+                      </div>   
+
+
+                  </div>
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
+            </div>
+         </div>
+         <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+   </div>
+   <!-- /.modal -->
+   <!--<%--end modal permissions--%>-->
+   <!--<%--start modal edit monitor--%>-->
+   <div class="modal fade" id="modalEditMonitor">
+      <div class="modal-dialog modal-lg">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h4 class="modal-title">Kali Device</h4> </div>
+            <div class="modal-body" style="background-color: white;">
+               <div class="row">
+<div class="col-md-12">
+                     <div class="grid simple transparent" id="edit-monitor-wrapper" style="overflow: hidden;">
+                        <div class="grid-body">
+                           <div class="" id="edit-monitor-form">
+                              <div class="row form-row">
+                                 <div class="col-md-6" id="divEditDeviceId">
+                                    <label class="form-label">Kali Device ID*</label>
+                                    <input type="text" placeholder="" class="form-control" id="txtEditDeviceId" name="txtEditDeviceId" disabled />
+                                    <label for="txtEditDeviceId" class="error" id="lblEditDeviceIdError" style="display: none;">DeviceId is required.</label>
+                                 </div>
+                              </div>
+                              <!--<%--END DEVICE--%>-->
+                              <!--<%--START PATIENT--%>-->
+                              <div class="row form-row">
+                                 <div class="col-md-12">
+                                    <h5><span class="semi-bold">Patient</span></h5>
+                                    <hr style="color:lightgray; margin:0px 0px 15px 0;" /> </div>
+                              </div>
+                              <div class="row form-row">
+                                 <div class="col-md-6" id="divEditPatientId">
+                                    <label class="form-label">Patient Number*</label>
+                                    <input type="text" placeholder="" class="form-control required tip" id="txtEditPatientId" name="txtEditPatientId" data-toggle="tooltip" title="" data-placement="top" data-original-title="* Required
+                                    
+A unique identifier of your choise.
+
+Ex: Site 23 - Patient 43A" name="txtEditDeviceId"/>
+                                    <label for="txtEditPatientId" class="error" id="lblEditPatientIdError" style="display: none;">Patient Number is required.</label>
+                                 </div>
+                              </div>
+                              <div class="row form-row">
+                                 <div class="col-md-6" id="divEditFirstName">
+                                    <label class="form-label">First Name</label>
+                                    <input type="text" placeholder="" class="form-control tip" id="txtEditFirstName" data-toggle="tooltip" title="" data-placement="top" data-original-title="Optional" name="txtEditFirstName"  />
+                                    <label for="txtEditFirstName" class="error" id="lblEditFirstNameError" style="display: none;">First Name is required.</label>
+                                 </div>
+                                 <div class="col-md-6" id="divEditLastName">
+                                    <label class="form-label">Last Name</label>
+                                    <input type="text" placeholder="" class="form-control tip" id="txtEditLastName" name="txtEditLastName" data-toggle="tooltip" title="" data-placement="top" data-original-title="Optional" />
+                                    <label for="txtEditLastName" class="error" id="lblEditLastNameError" style="display: none;">Last Name is required.</label>
+                                 </div>
+                              </div>
+                              <div class="row form-row">
+                                 <div class="col-md-6" id="divEditAge">
+                                    <label class="form-label">Date of Birth (MM/DD/YYYY)</label>
+                                    <input type="text" placeholder="MM/DD/YYYY" class="form-control tip" id="txtEditAge" name="txtEditAge" data-toggle="tooltip" title="" data-placement="top" data-original-title="Optional" />
+                                    <label for="txtEditAge" class="error" id="lblEditAgeError" style="display: none;">Make sure the date format is MM/DD/YYYY (ex: 02/18/1990)</label>
+                                 </div>
+                                 <div class="col-md-6" id="divEditGender">
+                                    <label class="form-label">Gender</label>
+                                    <select class="form-control tip select-2" id="selectEditGender" data-toggle="tooltip" title="" data-placement="top" data-original-title="Optional" style="padding: 0px !important;">
+                                       <option value="male">Male</option>
+                                       <option value="female">Female</option>
+                                    </select>
+                                 </div>
+                              </div>
+                              <!--<%--END PATIENT--%>-->
+                              <!--<%--START MEDICATION--%>-->
+                              <div class="row form-row">
+                                 <div class="col-md-12">
+                                    <h5><span class="semi-bold">Medication</span></h5>
+                                    <hr style="color:lightgray; margin:0px 0px 15px 0;" /> </div>
+                              </div>
+                              <div class="row form-row">
+                                 <div class="col-md-6" id="divEditMedicines">
+                                    <label class="form-label">Medicine Name*</label>
+                                    <input type="text" placeholder="" class="form-control required tip" id="txtEditComments" name="txtEditComments" data-toggle="tooltip" title="" data-placement="top" data-original-title="* Required
+                                    
+Any name to help recognize the medication.
+
+Ex: Meditech SmoothEye"/>
+                                    <label for="txtEditComments" class="error" id="txtEditCommentsError" style="display: none;">Medicine name is required</label>
+                                    <label class="info" id="lblEditMedicineDetails"></label>
+                                 </div>
+                                 <div class="col-md-6" id="divEditMedDetails">
+                                    <label class="form-label">Medication Key</label>
+                                    <input type="text" placeholder="" class="form-control tip" id="txtEditMedKey" name="txtEditMedKey" data-toggle="tooltip" title="" data-placement="top" data-original-title="Optional
+                                    
+A unique reference to a study or project.
+
+Ex: meditech-smootheye-CR-01012017" /> </div>
+                              </div>
+                              <br />
+                              <div class="row form-row hidden">
+                                 <div class="col-md-12" id="divEditMedLab">
+                                    <label class="form-label">Medication Lab</label>
+                                    <select class="form-control labs" id="selectEditLab"> </select>
+                                 </div>
+                              </div>
+                              <!--<%--END MEDICATION--%>-->
+                              <!--<%--<div class="row form-row">-->
+                              <!--<div class="col-md-12" id="divEditMedLab">-->
+                              <!--<label class="form-label">Medication Lab</label>-->
+                              <!--<select class="form-control labs" id="selectEditLab">-->
+                              <!--</select>-->
+                              <!--</div>-->
+                              <!--</div>--%>-->
+                              <!--<%--END MEDICATION--%>-->
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-primary" id="btnDeactivate" style="float:left;">Release Device</button>
+               <button type="button" class="btn btn-default" id="btnCancelEdit">Cancel</button>
+               <button type="button" class="btn btn-primary" id="btnSaveEdit">Save</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!--<%--end modal edit monitor--%>-->
+   <!--<%--start modal delete monitor--%>-->
+   <div class="modal fade" id="modalDeleteMonitor">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h4 class="modal-title">Confirm Release Device</h4> </div>
+            <div class="modal-body" style="background-color: white;"> Are you sure you want to release this device? </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" id="btn-modal-cancel-delete-monitor" data-dismiss="modal">No</button>
+               <button type="button" class="btn btn-primary" id="btn-modal-delete-monitor">Yes</button>
+                <img id="releaseSpinner" src="assets/img/spinner.gif" style="height: 25px; visibility:hidden;">
+            </div>
+         </div>
+      </div>
+   </div>
+   <!--<%--end modal delete monitor--%>-->
+   <!--<%--start modal add monitor--%>-->
+   <div class="modal fade" id="modalAddMonitor">
+      <div class="modal-dialog modal-lg">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h4 class="modal-title">Assign a Device</h4> </div>
+            <div class="modal-body" style="background-color: white;">
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="grid simple transparent" id="add-monitor-wrapper" style="overflow: hidden;">
+                        <div class="grid-body">
+                           <div class="" id="new-monitor-form">
+                              <!--<%--START Device--%>-->
+                              <div class="row form-row">
+                                 <div class="col-md-6" id="divDeviceId">
+                                    <label class="form-label">Kali Device ID*</label>
+                                    <input type="text" placeholder="" class="form-control tip required" id="txtDeviceId" data-toggle="tooltip" title="" data-placement="top" data-original-title="* Required
+                               
+ID located under the Kali device.
+
+Ex: 123-456" name="txtDeviceId" />
+                                    <label for="txtDeviceId" class="error" id="lblDeviceIdError" style="display: none;">DeviceId is required.</label>
+                                 </div>
+                              </div>
+                              <!--<%--END Device--%>-->
+                              <!--<%--START PATIENT--%>-->
+                              <div class="row form-row">
+                                 <div class="col-md-12">
+                                    <h5><span class="semi-bold">Patient</span></h5>
+                                    <hr style="color:lightgray; margin:0px 0px 15px 0;" /> </div>
+                              </div>
+                              <div class="row form-row">
+                                 <div class="col-md-6" id="divPatientId">
+                                    <label class="form-label">Patient Number*</label>
+                                    <input type="text" placeholder="" class="form-control required tip" id="txtPatientId" name="txtPatientId" data-toggle="tooltip" title="" data-placement="top" data-original-title="* Required
+                                    
+A unique identifier of your choise.
+
+Ex: Site 23 - Patient 43A" name="txtDeviceId"/>
+                                    <label for="txtPatientId" class="error" id="lblPatientIdError" style="display: none;">Patient Number is required.</label>
+                                 </div>
+                              </div>
+                              <div class="row form-row">
+                                 <div class="col-md-6" id="divFirstName">
+                                    <label class="form-label">First Name</label>
+                                    <input type="text" placeholder="" class="form-control tip" id="txtFirstName" data-toggle="tooltip" title="" data-placement="top" data-original-title="Optional" name="txtFirstName"  />
+                                    <label for="txtFirstName" class="error" id="lblFirstNameError" style="display: none;">First Name is required.</label>
+                                 </div>
+                                 <div class="col-md-6" id="divLastName">
+                                    <label class="form-label">Last Name</label>
+                                    <input type="text" placeholder="" class="form-control tip" id="txtLastName" name="txtLastName" data-toggle="tooltip" title="" data-placement="top" data-original-title="Optional" />
+                                    <label for="txtLastName" class="error" id="lblLastNameError" style="display: none;">Last Name is required.</label>
+                                 </div>
+                              </div>
+                              <div class="row form-row">
+                                 <div class="col-md-6" id="divAge">
+                                    <label class="form-label">Date of Birth (MM/DD/YYYY)</label>
+                                    <input type="text" placeholder="MM/DD/YYYY" class="form-control tip" id="txtAge" name="txtAge" data-toggle="tooltip" title="" data-placement="top" data-original-title="Optional" />
+                                    <label for="txtAge" class="error" id="lblAgeError" style="display: none;">Make sure the date format is MM/DD/YYYY (ex: 02/18/1990)</label>
+                                 </div>
+                                 <div class="col-md-6" id="divGender">
+                                    <label class="form-label">Gender</label>
+                                    <select class="form-control tip select-2" id="selectGender" data-toggle="tooltip" title="" data-placement="top" data-original-title="Optional" style="padding: 0px !important;">
+                                       <option value="male">Male</option>
+                                       <option value="female">Female</option>
+                                    </select>
+                                 </div>
+                              </div>
+                              <!--<%--END PATIENT--%>-->
+                              <!--<%--START MEDICATION--%>-->
+                              <div class="row form-row">
+                                 <div class="col-md-12">
+                                    <h5><span class="semi-bold">Medication</span></h5>
+                                    <hr style="color:lightgray; margin:0px 0px 15px 0;" /> </div>
+                              </div>
+                              <div class="row form-row">
+                                 <div class="col-md-6" id="divMedicines">
+                                    <label class="form-label">Medicine Name*</label>
+                                    <input type="text" placeholder="" class="form-control required tip" id="txtComments" name="txtComments" data-toggle="tooltip" title="" data-placement="top" data-original-title="* Required
+                                    
+Any name to help recognize the medication.
+
+Ex: Meditech SmoothEye"/>
+                                    <label for="txtComments" class="error" id="txtCommentsError" style="display: none;">Medicine name is required</label>
+                                    <label class="info" id="lblMedicineDetails"></label>
+                                 </div>
+                                 <div class="col-md-6" id="divMedDetails">
+                                    <label class="form-label">Medication Key</label>
+                                    <input type="text" placeholder="" class="form-control tip" id="txtMedKey" name="txtMedKey" data-toggle="tooltip" title="" data-placement="top" data-original-title="Optional
+                                    
+A unique reference to a study or project.
+
+Ex: meditech-smootheye-CR-01012017" /> </div>
+                              </div>
+                              <br />
+                              <div class="row form-row hidden">
+                                 <div class="col-md-12" id="divMedLab">
+                                    <label class="form-label">Medication Lab</label>
+                                    <select class="form-control labs" id="selectLab"> </select>
+                                 </div>
+                              </div>
+                              <!--<%--END MEDICATION--%>-->
+                              <!--<%--START PERMISSION--%>-->
+                              <div class="row form-row hidden">
+                                 <div class="col-md-12">
+                                    <h5><span class="semi-bold">Access Permission: (Optional)</span></h5> </div>
+                              </div>
+                              <div class="row form-row hidden">
+                                 <div class="col-md-6" id="divEmail">
+                                    <label class="form-label">Email</label>
+                                    <input type="text" placeholder="" class="form-control" id="txtEmail" name="txtEmail" />
+                                    <label for="txtEmail" class="error" id="lblEmailError" style="display: none;">Medication Lab is required</label>
+                                 </div>
+                                 <div class="col-md-6" id="divPermission">
+                                    <label class="form-label">Permission</label>
+                                    <select class="form-control" id="selectTrust">
+                                       <option value="1">Everything</option>
+                                       <option value="2">Edit Monitor + Anonymous Data</option>
+                                       <option value="3">Anonymous Data Only</option>
+                                       <option value="4">Nothing</option>
+                                    </select>
+                                 </div>
+                              </div>
+                              <div class="row form-row hidden">
+                                 <div class="col-md-11" id="divNotes">
+                                    <label class="form-label">Notes</label>
+                                    <input type="text" placeholder="" class="form-control" id="txtNotes" name="txtNotes" /> </div>
+                                 <div class="col-md-1">
+                                    <button class="btn btn-info m-t-25" type="button" id="btn-add-permission">Add</button>
+                                 </div>
+                              </div>
+                              <!--<%--END PERMISSION--%>-->
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-default" id="btn-cancel-monitor">Cancel</button>
+               <button class="btn btn-primary" type="button" id="btn-add-monitor">Assign</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!--<%--end modal add monitor--%>-->
+   <!--<%--hello world--%>-->
+   <script>
+      document.write(endPageContent);
+      document.write(masterFooter);
+   </script>
+   <script src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
+   <!-- notif -->
+   <script src="assets/plugins/jquery-notifications/js/messenger.min.js" type="text/javascript"></script>
+   <script src="assets/plugins/jquery-notifications/js/messenger-theme-future.js" type="text/javascript"></script>
+   <!-- JS ONY FOR DEMO-->
+   <script type="text/javascript" src="assets/plugins/jquery-notifications/js/demo/location-sel.js"></script>
+   <script type="text/javascript" src="assets/plugins/jquery-notifications/js/demo/theme-sel.js"></script>
+   <script type="text/javascript" src="assets/plugins/jquery-notifications/js/demo/demo.js"></script>
+    <script type="text/javascript" src="assets/js/notifications.js"></script>
+    <script src="assets/js/Helpers.js" type="text/javascript"></script>
+   <!--<script src="js/monitorsHandler.js" type="text/javascript"></script>-->
+   <script src="js/monitor.js" type="text/javascript"></script>
+   <script src="js/monitor-table.js" type="text/javascript"></script>
+   <script src="js/monitor-permissions.js" type="text/javascript"></script>
+   <script src="js/monitor-edit.js" type="text/javascript"></script>
+</body>
+
+</html>

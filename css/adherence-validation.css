@@ -1,0 +1,49 @@
+.ad-row > .table-header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.ad-row {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #E8EDF1;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.ten-score{
+
+background-color: #99c9e8;
+
+}
+
+.ten-score > div, .fourty-score > div, .total-score > div{
+
+color: #000;
+text-align: center;
+font-weight: 600;
+
+}
+
+.fourty-score{
+
+background-color: rgba(124, 217, 209, 0.83);
+
+}
+.total-score{
+
+background-color: rgba(206, 206, 206, 0.8);
+
+}
+
+div.patients{
+margin-bottom: 5px;
+
+}
+span.patients{
+font-size: 14px
+}
+.select2-container.patients {
+margin-left: 5px;
+width:240px;
+}

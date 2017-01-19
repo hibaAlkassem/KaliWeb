@@ -1,0 +1,262 @@
+<link href="css/demo-device.css" rel="stylesheet" type="text/css" media="screen" />
+
+<div class="drop">
+
+    <div class="drop-header">
+        <h3>Demo Device</h3> <i class="close-demo-device fa fa-close"></i>
+    </div>
+
+    <label class="serial-number">Device Serial Number</label>
+
+    <div class="serial-number">
+        <input type="text" placeholder="_______" class="device-serial" id="deviceKey" />
+
+    </div>
+
+    <span class="drop-status" id="status"></span>
+    <button class="btn btn-white btn-success create-drop" id="sendDrop" type="button">Take drop</button>
+
+</div>
+
+<script>
+    var pageName = window.location.href.substring(window.location.href.lastIndexOf('/') + 1, window.location.href.lastIndexOf('s') + 1);
+    var clicked = false;
+    console.log(pageName, 'pageName');
+
+
+    $('#sendDrop').live('click', function () {
+
+        $('#deviceKey, #sendDrop').attr('disabled', true);
+
+        var deviceKey = $('#deviceKey').val();
+        $('#status').html('Taking drop').css('color', 'grey');
+
+        var originalText = $("#status").text(),
+            i = 0;
+
+        var sendingDropAnimation = setInterval(function () {
+
+            $("#status").append(".");
+            i++;
+
+            if (i == 4) {
+                $("#status").html(originalText);
+                i = 0;
+            }
+
+        }, 200);
+
+
+
+
+        sendData(deviceKey, sendingDropAnimation);
+
+
+
+    });
+
+
+    function sendData(deviceKey, sendingDropAnimation) {
+
+
+
+
+        $.ajax({
+            url: config_apiserver + 'api/device/bykey/' + deviceKey,
+            contentType: "application/json;charset=utf-8",
+            async: true,
+            success: function (data) {
+
+                var data = [
+  "[ \"8944500606138073457\", \"21\", " + data.DeviceId + ", \"20,0,26,5,0,22A0,615D,168,DC81,0,0,Z\" ]", " [ \"8944500606138073457\", \"21\",  " + data.DeviceId + ", \"20,0,1,3B,0,09E,625D,D,4D7E,13,2A5C,1B,2567,21,2779,27,2B65,2D,2A79,47,3077,4D,2B58,53,2B45,59,3477,5F,3571,65,2E6C,77,2867,A3,2E67,A9,3A49,B1,3DBB,B7,35B6,BD,3BB1,C3,58AF,C9,6FAD,CF,79AB,DD,73AC,E3,2AF6,E9,2E75,F1,297A,1A7,2F7E,1AD,367E,1B2,237E,0,0,Z\" ]"
+        ];
+       
+          
+
+
+                $.ajax({
+
+                    url: config_apiserver + '/api/ImportData/parsingMonitor',
+                    type: 'POST',
+                    async: false,
+                    contentType: "application/json;charset=utf-8",
+                    data: JSON.stringify(JSON.parse(data[1])),
+                    success: function (response) {
+                        if (response == 'Data Recorded')
+                            $.ajax({
+
+                                url: config_apiserver + '/api/ImportData/parsingMonitor',
+                                type: 'POST',
+                                async: false,
+                                contentType: "application/json;charset=utf-8",
+                                data: JSON.stringify(JSON.parse(data[0])),
+                                success: function (response) {
+                                    console.log(response);
+                                    if (response == 'Data Recorded') {
+                                        $('#deviceKey, #sendDrop').attr('disabled', false);
+                                        clearInterval(sendingDropAnimation);
+                                        $('#status').html('<i class="fa fa-check"></i> Took drop').css('color', 'rgb(121, 201, 121)');
+                                    } else {
+                                        $('#deviceKey, #sendDrop').attr('disabled', false);
+                                        clearInterval(sendingDropAnimation);
+                                        $('#status').html('<i class="fa fa-times"></i> Drop failed').css('color', 'rgb(224, 109, 109)');
+                                    }
+                                },
+                                error: function () {
+                                    $('#deviceKey, #sendDrop').attr('disabled', false);
+                                    clearInterval(sendingDropAnimation);
+                                    $('#status').html('<i class="fa fa-times"></i> Drop failed').css('color', 'rgb(224, 109, 109)');
+                                }
+                            });
+
+                        else {
+                            $('#deviceKey, #sendDrop').attr('disabled', false);
+                            clearInterval(sendingDropAnimation);
+                            $('#status').html('<i class="fa fa-times"></i> Drop failed').css('color', 'rgb(224, 109, 109)');
+                        }
+                    },
+                    error: function () {
+                        $('#deviceKey, #sendDrop').attr('disabled', false);
+                        clearInterval(sendingDropAnimation);
+                        $('#status').html('<i class="fa fa-times"></i> Drop failed').css('color', 'rgb(224, 109, 109)');
+                    }
+                });
+
+
+            },
+            error: function () {
+                $('#deviceKey, #sendDrop').attr('disabled', false);
+                clearInterval(sendingDropAnimation);
+                $('#status').html('<i class="fa fa-times"></i> Drop failed').css('color', 'rgb(224, 109, 109)');
+            }
+        });
+
+
+
+
+
+
+    }
+
+
+    if (pageName != 'details') {
+        $('#demoDrop').live('click', function (e) {
+
+            $('#ngDemo').css('display', 'block');
+            $('.drop').css('top', '74');
+            $('.drop').css('right', '75');
+            $(function () {
+                $(".drop").draggable();
+            });
+
+            $('.drop').css('display', 'block');
+
+        });
+    } else {
+
+
+
+
+        $('#demoDrop').live('click', function (e) {
+
+            if (!clicked && detailsDeviceId != null) {
+
+                clicked = true;
+
+                var data = [
+            "[ \"8944500606138073457\", \"21\", \"" + detailsDeviceId + "\" ,\"20,0,1,3B,0,09E,625D,D,4D7E,13,2A5C,1B,2567,21,2779,27,2B65,2D,2A79,47,3077,4D,2B58,53,2B45,59,3477,5F,3571,65,2E6C,77,2867,A3,2E67,A9,3A49,B1,3DBB,B7,35B6,BD,3BB1,C3,58AF,C9,6FAD,CF,79AB,DD,73AC,E3,2AF6,E9,2E75,F1,297A,1A7,2F7E,1AD,367E,1B2,237E,0,0,Z\" ]", " [ \"8944500606138073457\", \"21\"," + detailsDeviceId + ", \"20,0,1,5,0,0A0,615D,168,DC81,0,0,Z\" ]"
+        ];
+
+                $('#demoDrop').addClass('active');
+
+
+                setTimeout(function () {
+                    $.ajax({
+
+                        url: config_apiserver + '/api/ImportedData',
+                        type: 'POST',
+                        async: false,
+                        contentType: "application/json;charset=utf-8",
+                        data: JSON.stringify(JSON.parse(data[0])),
+                        success: function (response) {
+                            console.log(response);
+                            if (response == 'Data Recorded')
+                                $.ajax({
+
+                                    url: config_apiserver + '/api/ImportedData',
+                                    type: 'POST',
+                                    async: false,
+                                    contentType: "application/json;charset=utf-8",
+                                    data: JSON.stringify(JSON.parse(data[1])),
+                                    success: function (response) {
+                                        console.log(response);
+                                        $('#demoDrop').removeClass('active');
+                                        clicked = false;
+
+                                    },
+                                    error: function () {
+                                        $('#demoDrop').removeClass('active');
+                                        clicked = false;
+                                    }
+                                });
+
+                            $('#demoDrop').removeClass('active');
+                            $('#demoDrop').attr('disabled', false);
+                            clicked = false;
+
+                        },
+                        error: function () {
+                            $('#demoDrop').removeClass('active');
+                            clicked = false;
+                        }
+                    });
+
+                }, 3000);
+
+            } else if (detailsDeviceId == null) {
+                $('#ngDemo').css('display', 'block');
+                $('.drop').css('top', '74');
+                $('.drop').css('right', '75');
+                $(function () {
+                    $(".drop").draggable();
+                });
+
+                $('.drop').css('display', 'block');
+            }
+
+
+        });
+
+
+        if (pageName == 'details') {
+
+            $(document).on("keypress", function (e) {
+                if (e.shiftKey && (e.which === 68)){
+                    $('#ngDemo').css('display', 'block');
+                $('.drop').css('top', '74');
+                $('.drop').css('right', '75');
+                $(function () {
+                    $(".drop").draggable();
+                });
+
+                $('.drop').css('display', 'block');}
+            });
+
+        }
+
+
+
+
+
+
+    }
+
+
+
+
+    $('.close-demo-device').live('click', function () {
+        $('.drop').css('display', 'none');
+        clicked = false;
+
+    });
+</script>

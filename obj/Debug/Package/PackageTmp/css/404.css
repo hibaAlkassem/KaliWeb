@@ -1,0 +1,19 @@
+.error-body {
+    background-color: #0AA699 !important;
+}
+
+.error-main {
+    margin-top: 40%;
+}
+
+.error-container .error-number {
+    color: white;
+}
+
+.error-container .error-description {
+    color: white;
+}
+
+.error-container .error-description-mini {
+    color: white;
+}

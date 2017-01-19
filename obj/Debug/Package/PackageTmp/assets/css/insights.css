@@ -1,0 +1,40 @@
+.listed {
+	
+        border-bottom-color:#E5E5E5;
+        border-bottom: 1px solid;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        cursor: pointer; 
+        cursor: hand;
+
+}
+
+.listed:hover{
+
+	background-color : #F0F0F0;
+
+}
+
+.activeDiv {
+
+        border-bottom-color:#E5E5E5;
+        border-bottom: 1px solid;
+        padding-top: 10px;
+        padding-bottom: 15px;
+        cursor: pointer; 
+        cursor: hand;
+	background-color:#F0F0F0;
+
+
+}
+
+.listHeader {
+
+
+  border-bottom-color:#E5E5E5;
+        border-bottom: 1px solid;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      
+
+}

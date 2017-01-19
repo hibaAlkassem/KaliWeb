@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <script src="assets/js/googleAnalytics.js" type="text/javascript"></script>
+
+    <link href="css/dropdown.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/jquery-notifications/css/messenger.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="assets/plugins/jquery-notifications/css/messenger-theme-flat.css" rel="stylesheet" type="text/css" media="screen" />
+
+
+    <script src="assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="js/app-config.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
+    <script src="js/master.js" type="text/javascript"></script>
+    <script src="assets/js/datatable_boostrap_extend.js"></script>
+    <script src="assets/js/angular.min.js" type="text/javascript"></script>
+
+    <script>
+        document.write(masterHead);
+
+    </script>
+    <link href="css/devicesdata.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+    <script>
+        document.write(masterBody);
+        document.write(beginPageContent);
+
+    </script>
+
+    <div class="page-title">
+        <i class="fa fa-hdd-o"></i>
+        <h3><span class="semi-bold">Devices Data Test</span></h3>
+    </div>
+    <input type="hidden" value="" id="inputUserId" />
+    <script>
+        document.getElementById("inputUserId").setAttribute("value", $.cookie('user').userid);
+
+    </script>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="grid simple">
+                <div class="grid-body">
+
+
+                    <div>
+
+                        <div> <b>Last Sync time</b>: <span id="syncTime"></span>
+                        </div>
+
+                        <div class="data-form">
+                            <span id="deviceIdTxt" class="data-form-txt"><b>Device ID</b> </span>
+                            <select id="deviceId" class="data-form-input"></select>
+                            <i class="input-error fa fa-exclamation-triangle deviceid-error"></i>
+                        </div>
+
+
+                        <div class="data-form">
+                            <span class="data-form-txt"><b>Start Time</b> </span>
+                            <input type="text" id="startTime" class="data-form-input" />
+                            <i class=" input-error fa fa-exclamation-triangle starttime-error"></i>
+                        </div>
+
+
+                    </div>
+
+                    <h4>Data: </h4>
+
+
+                    <div class="event-data">
+
+
+                        <div class="data-form">
+                            <span id="pressureTxt" class="data-form-txt"><b>Pressure</b> </span>
+                            <input type="text" id="pressure" class="data-form-input" />
+                            <i class=" input-error fa fa-exclamation-triangle pressure-error "></i>
+                        </div>
+
+                        <div class="data-form">
+                            <span id="orientationTxt" class="data-form-txt"><b>Orientation </b> </span>
+                            <input type="text" id="orientation" class="data-form-input" />
+                            <i class=" input-error fa fa-exclamation-triangle orientation-error "></i>
+                        </div>
+
+
+                        <div class="data-form">
+                            <span id="capacitiveTxt" class="data-form-txt"><b>Capacitive</b></span>
+                            <input type="text" id="capacitive" class="data-form-input" />
+                            <i class=" input-error fa fa-exclamation-triangle capacitive-error "></i>
+                        </div>
+
+                    </div>
+
+                    <br>
+                    <h4>Enviroment: </h4>
+
+
+                    <div class="event-data">
+
+
+                        <div class="data-form">
+                            <span id="temperatureTxt" class="data-form-txt"><b>Temperature</b> </span>
+                            <input type="text" id="temperature" class="data-form-input" />
+                            <i class=" input-error fa fa-exclamation-triangle temperature-error"></i>
+                        </div>
+
+                        <div class="data-form">
+                            <span id="humidityTxt" class="data-form-txt"><b>Humidity </b> </span>
+                            <input type="text" id="humidity" class="data-form-input" />
+                            <i class=" input-error fa fa-exclamation-triangle humidity-error "></i>
+                        </div>
+
+
+                        <div class="data-form">
+                            <span id="batteryTxt" class="data-form-txt"><b>Battery</b></span>
+                            <input type="text" id="battery" class="data-form-input" />
+                            <i class=" input-error fa fa-exclamation-triangle battery-error"></i>
+                        </div>
+
+                    </div>
+                    <br>
+
+
+                    <p>
+                        <button id="addBtn" class="btn btn-primary btn-lg" type="button">Add to Snippet</button>
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="grid simple">
+
+                <div class="grid-body">
+
+                    <div class="jumbotron">
+                        <h3>Data Snippet</h3>
+                        <h5 id="submitStatus"></h5>
+                        <textarea spellcheck="false" class="data">
+
+
+                        </textarea>
+
+
+                        <p><a id="submitData" class="btn btn-primary btn-lg" role="button">Submit</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script>
+        document.write(endPageContent);
+        document.write(masterFooter);
+
+    </script>
+    <!-- notif -->
+    <script src="assets/plugins/jquery-notifications/js/messenger.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/jquery-notifications/js/messenger-theme-future.js" type="text/javascript"></script>
+    <!-- JS ONY FOR DEMO-->
+    <script type="text/javascript" src="assets/plugins/jquery-notifications/js/demo/location-sel.js"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-notifications/js/demo/theme-sel.js"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-notifications/js/demo/demo.js"></script>
+    <script type="text/javascript" src="assets/js/notifications.js"></script>
+    <script src="assets/js/Helpers.js" type="text/javascript"></script>
+
+    <script src="js/exportFiles.js" type="text/javascript"></script>
+    <script src="assets/js/fnReloadAjax.js" type="text/javascript"></script>
+    <script src="js/deviceData.js" type="text/javascript"></script>
+
+
+
+</body>
+
+
+
+</html>

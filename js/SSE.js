@@ -1,0 +1,1 @@
+﻿var serversrc = "http://localhost:23493/";

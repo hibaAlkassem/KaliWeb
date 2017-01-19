@@ -1,0 +1,253 @@
+#ButtonExport1 {
+    top: 4px;
+}
+
+.export {
+    float: right;
+    margin-bottom: 20px;
+}
+
+div.research {
+    padding: 10px !important;
+    margin-bottom: -15px
+}
+
+h2.research {
+    color: #6C6C6C !important;
+    padding-left: 15px;
+    font-weight: normal;
+}
+
+#researchNameDetails {
+    font-weight: bold;
+}
+
+div.medication {
+    margin-bottom: 10px;
+    padding-top: 0px !importamt;
+}
+
+h3.medication {
+    color: #0090D9 !important;
+    margin-bottom: 20px;
+    margin-top: -5px;
+    font-weight: 500;
+}
+
+div.medicine {
+    margin-left: -15px;
+    //margin-top: -15px;
+}
+
+img.medicine {
+    float: left;
+    margin-right: 15px;
+    width: 23px
+}
+
+label.medicine {
+    float: left;
+    padding-top: 9px;
+    font-size: 15px;
+    font-weight: 700;
+    margin-left: -5px;
+}
+
+span.medicine {
+    float: left;
+    padding-top: 9px;
+    font-size: 15px;
+    margin-left: 18px;
+}
+
+div.dosing {
+    margin-left: -11px;
+    clear: left;
+    padding-top: 2px;
+}
+
+i.dosing {
+    float: left;
+    font-size: 25px;
+    padding-top: 5px;
+}
+
+label.dosing {
+    float: left;
+    padding-top: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    margin-left: 15px;
+}
+
+span.dosing {
+    float: left;
+    padding-top: 8px;
+    font-size: 15px;
+    margin-left: 32px;
+}
+
+div.timing {
+    margin-left: -15px;
+    margin-top: 3px;
+    clear: left;
+}
+
+i.timing {
+    float: left;
+    font-size: 25px;
+    padding-top: 5px;
+}
+
+label.timing {
+    float: left;
+    padding-top: 7px;
+    font-size: 15px;
+    font-weight: 700;
+    margin-left: 12px;
+}
+
+p.timing {
+    /*
+    float: left;
+    padding-top: 7px;
+    font-size: 15px;
+    margin-left: 34px;
+*/
+    
+    font-size: 15px;
+    padding-left: 115px;
+    padding-top: 8px;
+}
+
+img.time {
+    float: left;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+div.time {
+    width: 170px;
+    display: inline-grid;
+    float: left;
+    margin-left: 15px;
+}
+
+.time-take {
+    float: right;
+    position: absolute;
+    font-size: 18px;
+    padding-top: 15px;
+}
+
+.time-clock {
+    float: right;
+    position: absolute;
+    font-size: 13px;
+    padding-top: 35px;
+    padding-right: 2px
+}
+
+img.edit-medication {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    opacity: 0.9;
+}
+
+h3.history {
+    color: #0090D9 !important;
+    margin-bottom: -10px;
+    float: left;
+    font-weight: 500;
+}
+
+#dataDiv {
+    margin-top: 50px;
+}
+
+#patternChart {
+    margin-left: -60px;
+    margin-top: -1px;
+    margin-right: 159px;
+}
+
+#barChart {
+    margin-top: 35px;
+    margin-left: 50px;
+}
+
+@media (max-width: 1356px) {
+    #barChart {
+        clear: left;
+        margin-left: -59px;
+        margin-bottom: 15px;
+    }
+    div.charts {
+        height: 828px !important;
+    }
+}
+
+.old-data {
+    margin-top: 0px !important;
+}
+
+.hide-medication {
+    display: none;
+}
+
+#pEdit {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.data-list-header {
+    border-bottom: 1px solid #EFEFEF;
+    border-color: #EFEFEF;
+    padding-top: 2px;
+    padding-bottom: 10px;
+    color: #747C8B;
+    margin-top: 35px;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.details-data-div {
+    margin-top: 0px !important;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+div.charts {
+    height: 478px;
+}
+
+.charts-spinner {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+}
+
+.data-spinner {
+    position: absolute !important;
+    left: 50%;
+}
+
+abbr {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer !important;
+    cursor: hand !important;
+}
+#patientNameDetails {
+    font-weight: bold;
+}
+h2.patient {
+    color: #6C6C6C !important;
+    padding-left: 15px;
+    font-weight: normal;
+}
+div.patient {
+    padding: 10px !important;
+    margin-bottom: -15px;
+}

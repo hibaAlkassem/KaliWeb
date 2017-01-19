@@ -1,0 +1,210 @@
+<script src="assets/plugins/bootstrap-timepicker-gh-pages/js/bootstrap-timepicker.js" type="text/javascript"></script>
+<script src="assets/js/moment.js" type="text/javascript"></script>
+<link href="css/research-dialog.css" rel="stylesheet" type="text/css" />
+<!--<link href="assets/plugins/boostrap-clockpicker/bootstrap-clockpicker.min.css" rel="stylesheet" type="text/css" media="screen">-->
+<link href="assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
+<link href="assets/plugins/bootstrap-timepicker-gh-pages/css/bootstrap-timepicker.css" rel="stylesheet" type="text/css" />
+
+<script src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
+
+<script src="assets/js/tabs_accordian.js" type="text/javascript"></script>
+<!--<script src="assets/plugins/boostrap-clockpicker/bootstrap-clockpicker.min.js" type="text/javascript"></script>-->
+<!--<script src="assets/plugins/boostrap-clockpicker/bootstrap-clockpicker.min.js" type="text/javascript"></script>-->
+<script src="js/timezone.js" type="text/javascript"></script>
+<script src="assets/js/select2.full.min.js" type="text/javascript">
+    $('.select-2').select2({
+        minimumResultsForSearch: Infinity
+    });
+</script>
+<script src="js/researchDialog.js?v=1.0" type="text/javascript"></script>
+<style>
+    .bootstrap-timepicker-widget {
+        z-index: 9999 !important;
+    }
+</style>
+
+<div class="modal fade research-modal" id="researchModal" data-keyboard="false">
+    <div class="modal-dialog modal-lg" ng-controller="researchDialogController">
+        <div class="modal-content research-modal-content">
+            <div class="modal-header research-header">
+                <!--                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Done</span> </button>-->
+                <h4 class="research-name "><b></b><span id="researchName" >{{(researchName == '' && newResearch) && 'New Research' || researchName}}</span> </h4>
+                <h4 class="research-number">
+                    &nbsp; <span id="dash"></span><span id="researchNumber"></span>
+                    </h4> </div>
+
+            <div class="modal-header modal-buttons-header">
+                <ul class="nav nav-pills" id="tab-4">
+                    <li class="active"><a id="overviewBtn" href="#overview">Overview</a>
+                    </li>
+                    <li class=""><a id="permissionsBtn" href="#permissions">Research Team</a>
+                    </li>
+                </ul>
+
+                <img style="float: right; margin-top: -43px; margin-right: -3px; display: none;" id="dialogSpinner" src="assets/img/spinner.gif">
+            </div>
+
+
+
+            <div class="modal-body research-modal-body" style="background-color: white;">
+
+
+
+
+                <div class="tab-content">
+                    <!-- Overview Tab Start  -->
+                    <div class="tab-pane active" id="overview">
+
+                        <div class="row form-row">
+                            <div class="col-md-6" id="divResearchId">
+                                <label class="form-label">Research Title</label>
+                                <input type="text" placeholder="" class="form-control required tip profile-input" id="txtResearchTitle" name="txtResearchId" data-toggle="tooltip" title="" data-placement="right" data-original-title="* Required
+
+A title of your choice.
+
+Ex: NewMedIcin - Phase 3" name="txtDeviceId" ng-Model="researchName" />
+                                <label for="txtResearchId" class="error" id="lblResearchIdError" style="display: none;"></label>
+                            </div>
+                        </div>
+
+                        <div class="row form-row">
+                            <div class="col-md-6" id="divResearchId">
+                                <label class="form-label">Research Key</label>
+                                <input readonly="readonly" value="1222Sdx" style="cursor:default" type="text" placeholder="" class="form-control required tip profile-input" id="txtResearchKey" name="txtResearchId" data-toggle="tooltip" title="" data-placement="right" data-original-title="To be added to each patient 
+
+part of this research." name="txtDeviceId" />
+                                <!--                                <label for="txtResearchId" class="error" id="lblResearchIdError" style="display: none;">Research Number is required. (Must be at least two characters long)</label>-->
+                            </div>
+                        </div>
+
+                        <div class="row form-row">
+                            <div class="col-md-3">
+                                <label class="form-label">Starts on</label>
+                                <div class="input-append success date ">
+                                    <input class="form-control date-inputs prescription-input-change" id="startDate" placeholder="Start" type="text" data-toggle="tooltip" title="" data-placement="top" data-original-title="Optional">
+                                    <span class="add-on date-icons monitor-dates" style="border: 1px solid #E5E9EC !important;border-left:none !important;"><span class=""></span><i class="fa fa-calendar-o "></i>
+                                    </span>
+                                </div>
+
+
+                            </div>
+
+
+
+                            <div class="col-md-3">
+                                <label class="form-label">Ends on</label>
+                                <div class="input-append success date ">
+                                    <input class="form-control date-inputs prescription-input-change" id="endDate" placeholder="End" type="text" data-toggle="tooltip" title="" data-placement="top" data-original-title="Optional">
+                                    <span class="add-on date-icons monitor-dates" style="border: 1px solid #E5E9EC !important;border-left:none !important;"><span class=""></span><i class="fa fa-calendar-o "></i>
+                                    </span>
+                                </div>
+
+
+                            </div>
+                            <label for="startDate" class="error col-md-12" id="lblDateError" style="display: none;"></label>
+                        </div>
+                    </div>
+                    <!-- Overview Tab End  -->
+
+
+                    <!-- Research Team Tab Start  -->
+                    <div class="tab-pane" id="permissions">
+                        <span id="permissionsList">
+                            <div class="row permission" mp-id="-1" r-id="-1">    
+                                <div class="monitor-permission col-md-12">        
+                                    <div class="permission-txt">            
+                                        <b class="permission-patient-name">Kali Care</b>            
+                                        <b class="permission-patient-role"> (Added the patient)</b>            
+                                        <span class="permission-patient-email" email="info@kali.care"> - info@kali.care</span>
+                    </div>
+                    <img src="images/times-circle.png" class="icon-remove-permission" data-toggle="tooltip" title="" data-placement="left" data-original-title="Revoke permission">
+                    <i class="fa fa-refresh icon-resend-permission" data-toggle="tooltip" title="" data-placement="left" data-original-title="Re-send invitation email"></i>
+                    <span class="permission-pending">invitation pending</span> </div>
+            </div>
+            </span>
+            <div class="row add-permission" id="newPermissionDiv">
+
+                <div class="add-new-permission col-md-12 ">
+
+                    <div class="permission-email col-md-6 col-sm-6 col-xs-6">
+
+                        <input class="form-control permission-email" placeholder="email address" id="permissionEmail" />
+                    </div>
+                    <div class="permission-role col-md-3 col-sm-3 col-xs-3">
+                        <select class="select2 select-2 permission-role-select" id="permissionRole">
+                            <option value="8">CRO</option>
+                            <option value="9">Sponsor</option>
+                            <option value="10">Other</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-xs-2  permission-save">
+
+                        <button class="permission-save btn btn-success " type="button" id="addPermission">Add</button>
+                    </div>
+
+                </div>
+                <span class="new-permission-note">An Email invitation with instructions will be automatically sent to the recipient</span>
+
+            </div>
+        </div>
+        <!-- Research Team Tab End  -->
+
+
+
+
+
+    </div>
+
+
+</div>
+
+<div class="modal-footer">
+
+    <button type="button" class="btn btn-default footer-btns" id="modalPrev" style="display:none">Previous</button>
+    <button type="button" class="btn btn-success footer-btns" id="modalNext">Next</button>
+    <button type="button" class="btn btn-primary footer-btns" id="btnSaveEdit">Save</button>
+    <button type="button" class="btn btn-white btn-done-modal footer-btns" data-dismiss="modal" id="modalCancel">Cancel</button>
+    <button type="button" class="btn btn-white btn-done-modal footer-btns" id="modalDone">Done</button>
+
+</div>
+
+
+</div>
+</div>
+</div>
+
+<script>
+    $(function () {
+        $('.gender-select2').select2({
+            minimumResultsForSearch: Infinity,
+            placeholder: "Select Gender"
+        });
+
+        $('#timezone').select2({
+
+            placeholder: "Select time zone"
+        });
+
+        var timezoneIdCtr = 0;
+
+        $.each(timezone, function (index, value) {
+            $('#timezone').append('<option value="' + timezoneIdCtr + '" time="' + timezone[index].id + '">' + timezone[index].text + '</option>');
+            timezoneIdCtr++;
+        });
+
+        $(".date-inputs").datepicker({
+            format: 'M dd, yyyy'
+        });
+    });
+    $('.select2').select2({
+        minimumResultsForSearch: Infinity
+    });
+
+    $("[data-toggle='tooltip']").tooltip();
+    $('document').ready(function () {
+        $('#s2id_selectGender').attr('data-toggle', 'tooltip').attr('data-placement', 'right').attr('data-original-title', 'Optional');
+        $("[data-toggle='tooltip']").tooltip();
+    });
+    
+    $('#researchModal input').attr('autocomplete','off')
+</script>

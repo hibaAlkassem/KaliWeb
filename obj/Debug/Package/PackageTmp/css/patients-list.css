@@ -1,0 +1,227 @@
+div.patient-list {
+    padding: 3%;
+    clear: both;
+}
+div.patient-list-header {
+    border-bottom: 1px solid #EFEFEF;
+}
+div.patient-nam {
+    padding-top: 20px;
+}
+span.p-name {
+    color: #4e4e4e;
+    font-size: 18px;
+    line-height: 22px;
+}
+span.p-number {
+    font: 300 14px / 22px;
+}
+div.patient-adherence {}
+div.patient-data {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #EFEFEF;
+    padding-top: 10px
+}
+div.patient-data:hover {
+    background-color: #F1F5F8;
+    cursor: pointer;
+    cursor: hand;
+}
+div.patient-data:hover > div.options {
+    display: block;
+}
+img.inactive {
+    filter: gray;
+    -webkit-filter: grayscale(100%);
+    opacity: 0.2;
+}
+div.patient-medicine {
+    padding-top: 20px;
+    margin-left: -5.1%;
+    margin-right: 5.1%;
+}
+span.med-name {
+    font-size: 14px;
+    line-height: 18px;
+    color: #4e4e4e;
+    font-weight: 600;
+}
+span.device-key {
+    font-size: 12px;
+    line-height: 18px;
+    color: #4e4e4e;
+    font-weight: 300;
+}
+span.add-device-key {
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 300;
+    color: #3394d1;
+    font: 400 12px;
+}
+div.patient-sharing {
+    /*    padding-top: 0px;*/
+    font-size: 0;
+    line-height: 70px;
+}
+div.patient-sharing ul {
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+}
+div.patient-sharing li {
+    margin-bottom: -3px;
+    display: block;
+}
+div.patient-sharing > p {
+    /*
+  display: flex;
+  align-content: center;
+  align-items: center;
+  font-size: 12px;
+  line-height: 12px;
+  flex-direction: row;
+*/
+}
+.created-patient {
+    color: black;
+    font-weight: bold;
+}
+span.more-sharing {
+    color: #3394d1;
+    font: 400 12px;
+}
+div.options {
+    margin-top: -10px;
+    margin-bottom: -10px;
+    height: 100px !important;
+    /*    background-color: yellow;*/
+    padding-left: 10px;
+    display: none;
+}
+div.options-icons {
+    background-color: #DADDE0;
+    height: 101%;
+    position: absolute;
+    right: 0px;
+    width: 45px;
+    padding-left: 8px;
+    padding-top: 20px;
+}
+img.view-details-icon {
+    width: 30px;
+    margin-bottom: 15px
+}
+img.edit-patient-icon {
+    width: 30px;
+}
+div.filter-patients {
+    /*float: right;*/
+    /*
+    display: block;
+    width: 20%;
+*/
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+    border: none !important;
+    font-weight: 700;
+}
+.pagination > li:first-child > a:hover,
+.pagination > li:first-child > span {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+    background-color: #F3F6F9 !important;
+    font-weight: 600 !important;
+    border: none !important;
+    color: #6F7BAF !important;
+}
+.pagination > li > a,
+.pagination > li > span {
+    border: none !important;
+    color: #6F7B8A !important;
+    font-weight: 700;
+}
+.pagination > li:last-child > a:hover,
+.pagination > li:last-child > span {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+.pagination > li > a,
+.pagination > li > span {
+    padding: 6px 9px !important;
+}
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+    pointer-events: none;
+}
+.loading-patients {
+    height: 400px;
+}
+.patients-spinner {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+}
+.empty-list {
+    padding: 00px;
+}
+.empty-list-content {
+    position: absolute !important;
+    top: 30%;
+    color: #787a7c;
+    font-size: 16px;
+    align-content: center;
+    align-items: center;
+    width: 94%;
+    text-align: center;
+    font-weight: 400;
+}
+div.empty-list-content > p:last-child {
+    margin-top: 36px;
+}
+.sum {
+    display: block;
+}
+div.cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+.chart-flip {
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+.chart-flip .circle-text {
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #0aa699 !important;
+    border-color: #0aa699 !important;
+}
+* {
+    font: OpenSans;
+}

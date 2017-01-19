@@ -1,0 +1,7 @@
+abbr {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer !important;
+    cursor: hand !important;
+    border-width: 0px;
+}

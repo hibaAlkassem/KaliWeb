@@ -1,0 +1,8 @@
+<wpml-config>
+    <admin-texts>
+        <key name="cookie_banner_options">
+            <key name="bannerText" />
+            <key name="buttonText" />
+        </key>
+    </admin-texts>
+</wpml-config>

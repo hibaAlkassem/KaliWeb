@@ -1,0 +1,6 @@
+C:\Users\LarocheSoft\Desktop\TimeZoneKali\Rxense\Rxense\Rxense\KaliCareWebApp\bin\KaliCareWebApp.dll.config
+C:\Users\LarocheSoft\Desktop\TimeZoneKali\Rxense\Rxense\Rxense\KaliCareWebApp\bin\KaliCareWebApp.dll
+C:\Users\LarocheSoft\Desktop\TimeZoneKali\Rxense\Rxense\Rxense\KaliCareWebApp\bin\KaliCareWebApp.pdb
+C:\Users\LarocheSoft\Desktop\TimeZoneKali\Rxense\Rxense\Rxense\KaliCareWebApp\obj\Debug\KaliCareWebApp.dll
+C:\Users\LarocheSoft\Desktop\TimeZoneKali\Rxense\Rxense\Rxense\KaliCareWebApp\obj\Debug\KaliCareWebApp.pdb
+C:\Users\LarocheSoft\Desktop\TimeZoneKali\Rxense\Rxense\Rxense\KaliCareWebApp\obj\Debug\KaliCareWebApp.csprojResolveAssemblyReference.cache

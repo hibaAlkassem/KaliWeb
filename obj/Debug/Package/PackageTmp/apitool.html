@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="">
+
+<head>
+
+    <script src="assets/js/googleAnalytics.js" type="text/javascript"></script>
+   
+    <!-- Add details to data Api tool-->
+             <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+            <link href="css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />
+             <link href="assets/plugins/bootstrap-datepicker/css/datepicker.min.css" rel="stylesheet" type="text/css" />
+    <!-- -->
+    <link href="assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
+    <link href="css/dataapi.css" rel="stylesheet" type="text/css" />
+    <link href="css/dropdown.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/jquery-notifications/css/messenger.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="assets/plugins/jquery-notifications/css/messenger-theme-flat.css" rel="stylesheet" type="text/css" media="screen" />
+
+
+
+    <script src="assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="js/app-config.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
+    <script src="js/query.js" type="text/javascript"></script>
+    <script src="js/master.js" type="text/javascript"></script>
+    <script src="assets/js/datatable_boostrap_extend.js"></script>
+    <script src="assets/js/angular.min.js" type="text/javascript"></script>
+
+    <script>
+        document.write(masterHead);
+
+    </script>
+
+    <style>
+        input[type=checkbox] {
+  /* All browsers except webkit*/
+  transform: scale(1.5);
+
+  /* Webkit browsers*/
+  -webkit-transform: scale(1.5);
+}
+    </style>
+
+
+</head>
+
+<body>
+    <script>
+        document.write(masterBody);
+        document.write(beginPageContent);
+
+    </script>
+
+    <div class="page-title">
+        <i class="fa fa-hdd-o"></i>
+        <h3><span class="semi-bold">Data API Tool</span></h3>
+    </div>
+    <input type="hidden" value="" id="inputUserId" />
+    <script>
+        document.getElementById("inputUserId").setAttribute("value", $.cookie('user').userid);
+
+    </script>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="grid simple">
+                <div class="grid-body">
+
+
+
+
+                    <span id="deviceIdTxt" class="data-form-txt"><b>Device ID</b> </span>
+                    <select id="deviceId" class="data-form-input select-style"></select>
+
+                    <br>
+                    <div>
+
+                        <div class="last-sync"> <b>Last Sync time</b>: <span id="syncTime"></span>
+                        </div>
+
+                        <div class="event-div">
+                            <h4>Event</h4>
+
+
+
+                            <div class="row event">
+                                <div class="col-lg-12 start-time-error" hidden><i class="fa fa-warning" style="color:#ed8484"> Invalid start-time value</i>
+                                </div>
+                                <div class="col-lg-12 temperature-error" hidden><i class="fa fa-warning" style="color:#ed8484"> Invalid temperature value! Insert a value between -41 and 125</i>
+                                </div>
+                                <div class="col-lg-12 humidity-error" hidden><i class="fa fa-warning" style="color:#ed8484"> Invalid humidity value! Insert a value between 0 and 100</i>
+                                </div>
+                                <div class="col-lg-12 battery-error" hidden><i class="fa fa-warning" style="color:#ed8484"> Invalid battery value! Insert a value between 2.5 and 5</i>
+                                </div>
+
+                                <div class="col-lg-1 event-txt">StartTime</div>
+                                <input class="col-lg-1 event-input start-time tip" type="text" data-toggle="tooltip" data-original-title="time in seconds" />
+                                <div class="col-lg-1 event-txt ">Temperature</div>
+                                <input class="col-lg-1 event-input temperature tip" type="text" data-toggle="tooltip" data-original-title="value ranges from -41 to 125" />
+                                <div class="col-lg-1 event-txt ">Humidity</div>
+                                <input class="col-lg-1 event-input humidity tip" type="text" data-toggle="tooltip" data-original-title="value ranges from 0 to 100" />
+                                <div class="col-lg-1 event-txt">Battery</div>
+                                <input class="col-lg-1 event-input battery tip" type="text" data-toggle="tooltip" data-original-title="value ranges from 2.5 to 5" />
+
+
+                            </div>
+
+                            <h4>Sensors</h4>
+
+                            <div class="col-lg-12 sensor-time-error" hidden><i class="fa fa-warning" style="color:#ed8484"> Invalid sensor time value</i>
+                            </div>
+                            <div class="col-lg-12 pressure-error" hidden><i class="fa fa-warning" style="color:#ed8484"> Invalid pressure value! Insert a value between 0 and 255</i>
+                            </div>
+                            <div class="col-lg-12 orientation-error" hidden><i class="fa fa-warning" style="color:#ed8484"> Invalid orientation value! Insert a value between -90 and 90</i>
+                            </div>
+                            <div class="col-lg-12 capacitive-error" hidden><i class="fa fa-warning" style="color:#ed8484"> Invalid capacitive value! Insert 1 or 0</i>
+                            </div>
+
+                            <div class="row sensor-data">
+
+                                <div class="col-lg-1 event-txt">Time</div>
+                                <input class="col-lg-1 event-input sensor-time tip" type="text" data-toggle="tooltip" data-original-title="time in seconds" />
+                                <div class="col-lg-1 event-txt">Pressure</div>
+                                <input class="col-lg-1 event-input pressure tip" type="text" data-toggle="tooltip" data-original-title="value ranges from 0 to 255" />
+                                <div class="col-lg-1 event-txt">Orientation</div>
+                                <input class="col-lg-1 event-input orientation tip" type="text" data-toggle="tooltip" data-original-title="value ranges from -90 to 90" />
+                                <div class="col-lg-1 event-txt">Capacitive</div>
+                                <input class="col-lg-1 event-input capacitive tip" type="text" data-toggle="tooltip" data-original-title="value must be 0 or 1" />
+
+                            </div>
+
+
+
+                            <button class="btn btn-default btn-sensors" type="button"><i class="fa fa-plus"></i> Add Sensor</button>
+
+                            <br>
+                            <br>
+
+                            <hr>
+
+
+                        </div>
+
+
+
+
+                        <button class="btn btn-default btn-success btn-add-event" type="button"><i class="fa fa-plus"></i> Add Event</button>
+
+
+
+                        <br>
+
+
+                        <p>
+                            <button id="clearForm" class="btn btn-danger btn-lg" type="button">Clear</button>
+                            <button id="addBtn" class="btn btn-primary btn-lg" type="button">Add to Snippet</button>
+
+                            <br>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="grid simple">
+
+                    <div class="grid-body">
+
+                        <div class="jumbotron">
+                            <h3>Data Snippet</h3>
+                            <h5 id="submitStatus"></h5>
+                            <textarea spellcheck="false" class="data"></textarea>
+
+                            <p>
+
+
+
+
+                                <input type="checkbox" id="dateCheck" name="" value="" style="margin-left:5px;" /><br>
+                                <a id="submitData" class="btn btn-primary btn-lg" role="button" style="margin-top:0px;">Submit</a>
+                                <a id="addToForm" class="btn btn-default btn-lg" role="button" style="margin-top:0px;">Add to Form</a>
+
+
+
+
+                                <div class="input-group bootstrSap-timepicker timepicker" style="width: 150px; margin-left: 20px; float:right; display: none; margin-top: -30px;" id="time1">
+
+                                    <input id="lastsynctime" type="text" class=" form-control input-small">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+
+                                </div>
+
+
+                                <div class="input-append success date" id="check" style="width: 100px; float:right;margin-right: 20px; display: none;margin-top: -30px;">
+
+                                    <input class="form-control date-inputs prescription-input-change" id="synDate" type="text" data-toggle="tooltip" data-placement="top" data-original-title="Optional">
+                                    <span class="add-on date-icons monitor-dates" style="border: 1px solid #E5E9EC !important;border-left:none !important;">
+                                        <span class=""></span><i class="fa fa-calendar-o open-datetimepicker "></i>
+                                    </span>
+
+                                </div>
+
+                            <p style="float:right;margin-top:-20px; font-size: 1em;  display: none;" id="ParLastSync"> Sync Date : </p>
+
+                                <div class="input-group bootstrap-timepicker timepicker" style="width: 150px; float:right; margin-right: 40px;display: none; margin-top: -30px;" id="time2" >
+                                    
+                                    <input id="lastrequestTime" type="text" class=" form-control input-small">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                </div> 
+                                
+                                <div class="input-append success date" id="check1" style="width: 100px; float:right;margin-right: 40px;display: none; margin-top: -30px;">
+
+                                    <input class="form-control date-inputs prescription-input-change" id="lastRequestDate" type="text" data-toggle="tooltip" data-placement="top" data-original-title="Optional">
+                                    <span class="add-on date-icons monitor-dates" style="border: 1px solid #E5E9EC !important;border-left:none !important;">
+                                        <span class=""></span><i class="fa fa-calendar-o open-datetimepicker "></i>
+                                    </span>
+
+                                    
+                                </div>
+
+                            <p style="float:right;margin-top:-20px; font-size: 1em;  display: none;" id="ParLastRequest"> Request Date : </p>
+
+
+                                <!--
+                                <span class="snipp-tools">  
+                                <i id="copyData" class="fa fa-files-o"></i>
+                                <i id="pasteData" class="fa fa-clipboard"></i>
+                                <i id="clearData" class="fa fa-times"></i>
+                                </span>
+                                
+-->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--   <div class="history-btn">
+            <i class="fa fa-history history-icon"></i>
+
+            <i class="fa fa-floppy-o add-template-icon"></i>
+
+        </div> -->
+
+
+
+        <!-- 
+        <div class="template-name">
+            <h3 class="temp-name-header">Template Name <i class="fa fa-times cancel-temp-name"></i></h3>
+            <input id="templateName" type="text" class="temp-name-txt"/>
+            <button class="btn btn-default btn-success btn-save-temp-name" type="button">Save</button>
+        </div>
+        
+        
+        <div id="templates" class="saved-data-div">
+
+            <!--
+            <i class="fa fa-times close-templates"></i>
+            <br/>
+            <br/>
+-->
+        <!--
+            <div class="template">
+                <h4>First</h4>
+                <h5><b>Date: </b>June 05 Something</h5>
+            </div>
+
+            <div class="template">
+                <h4>Template Name</h4>
+                <h5><b>Date: </b>June 05 Something</h5>
+            </div>
+
+            <div class="template">
+                <h4>Template Name</h4>
+                <h5><b>Date: </b>June 05 Something</h5>
+            </div>
+
+            <div class="template">
+                <h4>Template Name</h4>
+                <h5><b>Date: </b>June 05 Something</h5>
+            </div>
+
+            <div class="template">
+                <h4>Template Name</h4>
+                <h5><b>Date: </b>June 05 Something</h5>
+            </div>
+
+            <div class="template">
+                <h4>Template Name</h4>
+                <h5><b>Date: </b>June 05 Something</h5>
+            </div>
+
+            <div class="template">
+                <h4>Template Name</h4>
+                <h5><b>Date: </b>June 05 Something</h5>
+            </div>
+
+            <div class="template">
+                <h4>Template Name</h4>
+                <h5><b>Date: </b>June 05 Something</h5>
+            </div>
+
+            <div class="template">
+                <h4>Template Name</h4>
+                <h5><b>Date: </b>June 05 Something</h5>
+            </div>
+
+            <div class="template">
+                <h4>Template Name</h4>
+                <h5><b>Date: </b>June 05 Something</h5>
+            </div>
+
+            <div class="template">
+                <h4>Template Name</h4>
+                <h5><b>Date: </b>June 05 Something</h5>
+            </div>
+
+            <div class="template">
+                <h4>Template Name</h4>
+                <h5><b>Date: </b>June 05 Something</h5>
+            </div>
+
+            <div class="template">
+                <h4>Template Name</h4>
+                <h5><b>Date: </b>June 05 Something</h5>
+            </div>
+
+            <div class="template">
+                <h4>Template Name</h4>
+                <h5><b>Date: </b>June 05 Something</h5>
+            </div>
+
+            <div class="template">
+                <h4>Template Name</h4>
+                <h5><b>Date: </b>June 05 Something</h5>
+            </div>
+
+            <div class="template">
+                <h4>Template Name</h4>
+                <h5><b>Date: </b>June 05 Something</h5>
+            </div>
+
+            <div class="template">
+                <h4>Template Name</h4>
+                <h5><b>Date: </b>June 05 Something</h5>
+            </div>
+
+            <div class="template">
+                <h4>Template Name</h4>
+                <h5><b>Date: </b>June 05 Something</h5>
+            </div>
+
+            <div class="template">
+                <h4>Template Name</h4>
+                <h5><b>Date: </b>June 05 Something</h5>
+            </div>
+
+            <div class="template">
+                <h4>Last</h4>
+                <h5><b>Date: </b>June 05 Something</h5>
+            </div>
+
+
+            <i class="fa fa-chevron-up scroll-up"></i>
+            <i id="hideTemplates" class="fa fa-times hide-templates-button"></i>
+            <i class="fa fa-chevron-down scroll-down"></i>
+
+
+
+
+        </div> -->
+
+
+
+
+        <script>
+            document.write(endPageContent);
+            document.write(masterFooter);
+
+        </script>
+        <!-- notif -->
+        
+        <!-- Add details to data Api tool-->
+        <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+        <!-- -->
+
+        <script src="assets/plugins/jquery-notifications/js/messenger.min.js" type="text/javascript"></script>
+        <script src="assets/plugins/jquery-notifications/js/messenger-theme-future.js" type="text/javascript"></script>
+        <!-- JS ONY FOR DEMO-->
+        <script type="text/javascript" src="assets/plugins/jquery-notifications/js/demo/location-sel.js"></script>
+        <script type="text/javascript" src="assets/plugins/jquery-notifications/js/demo/theme-sel.js"></script>
+        <script type="text/javascript" src="assets/plugins/jquery-notifications/js/demo/demo.js"></script>
+        <script type="text/javascript" src="assets/js/notifications.js"></script>
+        <script src="assets/js/Helpers.js" type="text/javascript"></script>
+
+        <script src="js/exportFiles.js" type="text/javascript"></script>
+        <script src="assets/js/fnReloadAjax.js" type="text/javascript"></script>
+        <script src="js/dataApiTool.js" type="text/javascript"></script>
+        <script type="text/javascript">
+
+            // Set default values for the date/time inputs.
+
+
+    var d = new Date();
+    var date = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+    var time = d.getHours() + ':' + d.getMinutes();
+    $('#synDate').attr('value', date);
+    $('#lastRequestDate').attr('value', date);
+    $('#lastsynctime').attr('value', time);
+    $('#lastsynctime ').timepicker({
+        'timeFormat': 'H:i:s'
+
+    });
+    $("#check").datepicker({
+        format: 'yyyy-mm-dd',
+        inline: true,
+        maxDate: '0',
+        onSelect: function (dateText, inst) {
+
+        }
+    });
+
+    $('#lastrequestTime').attr('value', time);
+    $('#lastrequestTime').timepicker({
+        'timeFormat': 'H:i:s'
+
+    });
+    $("#check1").datepicker({
+        format: 'yyyy-mm-dd',
+        inline: true,
+        maxDate: '0',
+        onSelect: function (dateText, inst) {
+
+        }
+    });
+
+
+
+        </script>
+
+
+
+
+
+</body>
+
+
+
+</html>

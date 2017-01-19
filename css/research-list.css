@@ -1,0 +1,217 @@
+div.research-list {
+    padding: 3%;
+    clear: both;
+    padding-top: 57px;
+}
+
+div.research-list-header {
+    border-bottom: 1px solid #EFEFEF;
+}
+
+span.r-name {
+    font-size: 18px;
+    line-height: 22px;
+    font: 400 18px / 22px;
+}
+span.r-name > b {
+font-weight: 500;
+}
+
+div.research-data {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #EFEFEF;
+}
+
+div.research-title {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+div.research-data:hover {
+    background-color: #F1F5F8;
+    cursor: pointer;
+    cursor: hand;
+}
+
+div.research-data:hover > div.options {
+    display: block;
+}
+
+div.options {
+    margin-top: -5px;
+    margin-bottom: -10px;
+    padding-left: 10px;
+    display: none;
+    margin-left: -8.4%;
+}
+
+div.options-icons {
+    background-color: #DADDE0;
+    position: absolute;
+    right: 0px;
+    top: 5px;
+    width: 45px;
+    padding-left: 8px;
+    padding-top: 10px;
+    height: 78px;
+}
+
+img.view-details-icon {
+    width: 30px;
+    margin-bottom: 10px
+}
+
+img.edit-research-icon {
+    width: 30px;
+}
+
+div.filter-patients {
+    /*float: right;*/
+    /*
+    display: block;
+    width: 20%;
+*/
+}
+
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+    border: none !important;
+    font-weight: 700;
+}
+
+.pagination > li:first-child > a:hover,
+.pagination > li:first-child > span {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
+pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+    background-color: #F3F6F9 !important;
+    font-weight: 600 !important;
+    border: none !important;
+    color: #6F7BAF !important;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+    border: none !important;
+    color: #6F7B8A !important;
+    font-weight: 700;
+}
+
+.pagination > li:last-child > a:hover,
+.pagination > li:last-child > span {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+    padding: 6px 9px !important;
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+    pointer-events: none;
+}
+
+.loading-research {
+    height: 400px;
+}
+
+.research-spinner {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+}
+
+.empty-list {
+    padding: 00px;
+}
+
+.empty-list-content {
+    position: absolute !important;
+    top: 30%;
+    color: #787a7c;
+    font-size: 16px;
+    align-content: center;
+    align-items: center;
+    width: 94%;
+    text-align: center;
+    font-weight: 400;
+}
+
+.empty-list-content .dropdown-menu{
+
+}
+
+div.empty-list-content > p:last-child {
+    margin-top: 36px;
+}
+
+.sum {
+    display: block;
+}
+
+div.cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.chart-flip {
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+
+.chart-flip .circle-text {
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+
+div.research-sharing {
+    /*    padding-top: 0px;*/
+    font-size: 0;
+    line-height: 71px;
+}
+
+div.research-sharing ul {
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+}
+div.research-sharing li {
+    margin-bottom: -3px;
+    display: block;
+}
+.created-research {
+    color: black;
+    font-weight: bold;
+}
+span.more-sharing {
+    color: #3394d1;
+    font: 400 12px;
+}
+
+
+* {
+    font: OpenSans;
+}

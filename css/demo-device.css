@@ -1,0 +1,115 @@
+.drop {
+    position: fixed;
+    height: 300px;
+    width: 300px;
+    background-color: #FFF;
+    top: 74px;
+    z-index: 9999;
+    box-shadow: 0px 1px 5px #000;
+    right: 75px;
+    display: none;
+}
+
+div.drop-header {
+    position: absolute;
+    height: 47px;
+    width: 100%;
+    text-align: center;
+    background-color: #3394D1;
+    color: #fff;
+    cursor: default;
+}
+
+label.serial-number {
+    position: absolute;
+    top: 117px;
+    left: 55px;
+    font-size: 19px;
+}
+
+div.drop-header > i.close-demo-device {
+    font-size: 20px;
+    position: absolute;
+    right: 5px;
+    top: 3px;
+    cursor: hand;
+    cursor: pointer;
+}
+
+div.drop-header h3 {
+    color: #fff;
+}
+
+input.device-serial {
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    background-color: inherit;
+    font-size: 20px;
+    left: 26px;
+    border-width: medium medium 1px;
+    border-style: none none solid;
+    border-bottom: #6580B4;
+}
+
+div.serial-number {
+    position: absolute;
+    top: 140px;
+    left: 72px;
+}
+
+span.serial-dash {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    background-color: inherit;
+    border: medium none;
+    left: 73px;
+    color: rgb(0, 0, 0);
+    top: 0px;
+    font-size: 20px;
+}
+
+input.device-serial::-webkit-input-placeholder,
+input.device-serial::-moz-placeholder,
+input.device-serial:-ms-input-placeholder,
+input.device-serial:-moz-placeholder {
+    font-size: 20px !important;
+    font-style: italic !important;
+}
+
+input.device-serial:focus {
+    border-color: #fff;
+    background-color: #fff;
+}
+
+button.create-drop {
+    position: absolute;
+    top: 225px;
+    left: 104px;
+    height: 50px;
+    color: #6F7B8A;
+}
+
+button.create-drop:focus {
+    color: #6F7B8A;
+}
+
+button.create-drop:hover,
+button.create-drop:active {
+    color: #000;
+}
+
+button.create-drop:disabled {
+    background-color: #9a9a9a !important;
+    color: #fff;
+    border-color: grey !important;
+}
+
+span.drop-status {
+    position: absolute;
+    top: 188px;
+    left: 109px;
+    color: #8A8383;
+    /*    display: none;*/
+}

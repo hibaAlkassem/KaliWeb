@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="">
+
+<head>
+
+    <script src="assets/js/googleAnalytics.js" type="text/javascript"></script>
+
+
+    <link href="assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="assets/plugins/jquery-slider/css/jquery.sidr.light.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="assets/plugins/jquery-notifications/css/messenger.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="assets/plugins/jquery-notifications/css/messenger-theme-flat.css" rel="stylesheet" type="text/css" media="screen" />
+    <!-- BELOW CSS FILE IS NOT REQUIRED -->
+    <link href="assets/plugins/jquery-notifications/css/location-sel.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
+    <link href="css/circlespinner.css" rel="stylesheet" type="text/css" />
+
+
+    <style>
+        .tab-content {
+            padding-top: 15px;
+        }
+
+        #modalDelete {
+            margin-top: 20%;
+        }
+
+        .datepicker-dropdown {
+            z-index: 9999 !important;
+        }
+
+        .panel-body {
+            word-break: break-all;
+        }
+
+        #refresh {
+           cursor: pointer
+        }
+
+
+    </style>
+
+    <script src="assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="js/app-config.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.cookie.js"></script>
+    <script src="js/master.js" type="text/javascript"></script>
+    <script src="assets/js/angular.min.js" type="text/javascript"></script>
+    <script>
+        document.write(masterHead);
+    </script>
+
+</head>
+
+<body class="breakpoint-1024">
+
+    <script>
+        document.write(masterBody);
+        document.write(beginPageContent);
+    </script>
+
+
+
+
+    <div class="page-title">
+        <i class="fa fa-user"></i>
+        <h3><span class="semi-bold">My Profile</span></h3>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-offset-1 col-md-1 col-xs-2">
+            <img src="assets/img/profile/1.png" class="thumbnail img-responsive" alt="" />
+        </div>
+        <div class="col-md-6">
+            <div class="grid simple">
+                <div class="grid-body" id="profileInfo">
+                    <div class="row form-row">
+                        <div class="col-md-10" id="divFirstName" hidden>
+                            <h5><span class="form-label bold">First Name: </span> <span class="semi-bold" id="lblFirstName"></span></h5>
+                            <input type="text" placeholder="" class="form-control" id="txtFirstName" name="txtFirstName" style="display:none" />
+                            <label for="txtFirstName" class="error" id="lblFirstNameError" style="display:none;">First Name is required.</label>
+                            <input type="hidden" value="1" id="inputUserId" />
+                        </div>
+                    </div>
+                    <div class="row form-row">
+                        <div class="col-md-10" id="divLastName" hidden>
+                            <h5><span class="form-label bold">Last Name: </span><span class="semi-bold" id="lblLastName"></span></h5>
+                            <input type="text" placeholder="" class="form-control" id="txtLastName" name="txtLastName" style="display:none" />
+                            <label for="txtLastName" class="error" id="lblLastNameError" style="display:none;">Last Name is required.</label>
+                        </div>
+                    </div>
+                    <div class="row form-row">
+                        <div class="col-md-10" id="divEmail" hidden>
+                            <h5><span class="form-label bold">Email: </span><span class="semi-bold" id="lblEmail"></span></h5>
+                            <input type="text" placeholder="" class="form-control" id="txtEmail" name="txtEmail" style="display:none" />
+                            <label for="txtEmail" class="error" id="lblEmailError" style="display:none;">Email is required.</label>
+                        </div>
+                    </div>
+
+
+                    <div id="apiKeyForm" style="display:none;">
+                        <div class="row form-row">
+                            <div class="col-md-10">
+                                <h5><span class="form-label bold">Account Id</span></h5>
+                            </div>
+                        </div>
+                        <div class="row form-row">
+                            <div class="col-md-10">
+                                <div class="panel panel-default">
+                                    <div class="panel-body" style="border:1px solid #ccc; padding:10px;" id="accountnumber"></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="row form-row">
+                            <div class="col-md-10">
+
+                                
+                                     <h5>
+                                    
+                                         
+
+                                             <span class="form-label bold">API Key</span>
+                                         
+
+                                         <div style="float:right">
+                                             <span id='refresh'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-refresh" aria-hidden="true"></i>
+                                             <span style="font-weight: bold;">&nbsp;New Key</span></span>
+                                             
+                                           
+                                         </div>
+
+                                         <div style="float:right">
+
+                                             <span class="form-label" id ="statusAuth" style="font-weight: bold;"></span>
+                                             <span>&nbsp;&nbsp;</span>
+                                         </div>
+
+
+
+</h5>
+                                
+                              
+                                <!--<div class="col-md-3">
+                                    <span class="form-label">API Key</span>
+                                </div>-->
+
+
+
+                            </div>
+
+
+                        </div>
+                        <div class="row form-row">
+                            <div class="col-md-10">
+                                <div class="panel panel-default">
+                                    <div class="panel-body" style="border:1px solid #ccc; padding:5px; height: 200px;" id="apiKey"></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    
+
+
+
+                    <!--Create Key Modal--->
+
+                    <div class="modal fade" id="modalNewToken">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Create New Key</h4>
+                                </div>
+                                <div class="modal-body" style="background-color: white;">
+                                    <p> Are you sure you want to create a new API key? </p>
+                                    <p> The current API key will not be displayed on this page but will remain active until it expires. </p>
+                                    <p> Enter Your Password : </p>
+                                    <input type="password" class="form-control" id="pwd">
+                                    <label class="error" id="lblPassword" style="display:none;"></label>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" id="btn-modal-AddKey">Create Key</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Create Key Modal--->
+
+                    <!--<%--change password form--%>-->
+                    <div id="passwordForm" style="display:none;">
+                        <br />
+                        <br />
+
+                        <div class="row form-row">
+                            <div class="col-md-10" id="divOldPassword">
+                                <h5 class="bold">Old Password:</h5>
+                                <input type="password" class="form-control" id="txtOldPassword" name="txtOldPassword" />
+                                <label for="txtOldPassword" class="error" id="lblOldPasswordError" style="display:none;">Old Passowrd is required.</label>
+                            </div>
+                        </div>
+                        <div class="row form-row">
+                            <div class="col-md-10" id="divNewPassword">
+                                <h5 class="bold">New Password:</h5>
+                                <input type="password" class="form-control" id="txtNewPassword" name="txtNewPassword" />
+                                <label for="txtNewPassword" class="error" id="lblNewPasswordError" style="display:none;">New Password must be at least 2 characters long.</label>
+
+                            </div>
+                        </div>
+                        <div class="row form-row">
+                            <div class="col-md-10" id="divConfirmPassword">
+                                <h5 class="bold">Confirm Password:</h5>
+                                <input type="password" class="form-control" id="txtConfirmPassword" name="txtConfirmPassword" />
+                                <label for="txtConfirmPassword" class="error" id="lblConfirmPasswordError" style="display:none;">Passwords do not match.</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<%--end change password form--%>-->
+
+                    <div class="row form-actions">
+                        <div class="col-md-12">
+                            <div class="pull-right">
+                                <button class="btn btn-cons" type="button" id="btn-cancel" style="display:none">Close</button>
+                                <button class="btn btn-primary btn-cons" type="button" id="btn-save" style="display:none">Save</button>
+                                <button class="btn btn-success btn-cons" type="button" id="btn-key">API Key</button>
+                                <button class="btn btn-success btn-cons" type="button" id="btn-password">Change Password</button>
+                                <button class="btn btn-success btn-cons" type="button" id="btn-edit" disabled>Edit Profile</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        document.write(endPageContent);
+        document.write(masterFooter);
+    </script>
+
+    <script src="js/date_functions.js" type="text/javascript"></script>
+    <script src="assets/js/tabs_accordian.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.session.js" type="text/javascript"></script>
+    <script src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
+
+
+    <!-- notif -->
+    <script src="assets/plugins/jquery-notifications/js/messenger.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/jquery-notifications/js/messenger-theme-future.js" type="text/javascript"></script>
+
+    <!-- JS ONY FOR DEMO-->
+    <script type="text/javascript" src="assets/plugins/jquery-notifications/js/demo/location-sel.js"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-notifications/js/demo/theme-sel.js"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-notifications/js/demo/demo.js"></script>
+
+    <script type="text/javascript" src="assets/js/notifications.js"></script>
+
+    <script type="text/javascript" src="js/profile.js"></script>
+
+    <script type="text/javascript" src="assets/js/md5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/aes-min.js"></script>
+
+</body>
+
+
+
+
+
+</html>
